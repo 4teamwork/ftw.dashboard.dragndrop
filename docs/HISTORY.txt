@@ -2,7 +2,6 @@ Changelog
 =========
 
 
-0.1.4
------
-
-release ftw.dashboard.dragndrop.
+1.0
+---
+initial release
