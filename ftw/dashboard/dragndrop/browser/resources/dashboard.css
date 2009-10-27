@@ -1,0 +1,59 @@
+.dashboard-column {
+    padding-bottom: 10em !important;
+}
+.ui-sortable-placeholder {
+    border: 1px dotted black;
+    visibility: visible !important;
+    margin-bottom: 1.7em !important; 
+}
+.ui-sortable-placeholder * {
+    visibility: hidden;
+}
+.portletwrapper {
+    background-color: white;
+}
+.portletHeader {
+    cursor: move;
+}
+.fold, .close , .edit {
+    cursor: pointer;
+    float:right;
+}
+
+span.noEntries {
+    width:20.6em;
+    display:block;
+    padding:0.5em;
+}
+
+
+.portletItemEmpty {
+    border-left:1px solid #B2CBDC;
+    border-right:1px solid #B2CBDC;
+}
+
+.folded dd, .folded form{
+    display: none;
+    visibility: hidden;
+}
+
+
+/* Dashboard */
+#dashboard-add-portlet form{
+	float:left;
+	display:block;
+}
+
+#dashboard select {
+width:70%;
+}
+
+div#dashboard #dashboard-add-portlet {
+
+    text-align:left;
+    padding-top:1em;
+}
+
+body.section-konto div#portal-column-two {
+    margin-top:8.2em;
+}
