@@ -118,12 +118,11 @@
 					<form tal:attributes="action python:context.portal_url()">
 	                    <textarea style="display:none" tal:content="referer" name="referer"></textarea>
 						<select name=":action"
-							tal:define="dashboard_props python: getattr(context.portal_properties,'ftw.dashboard', None);"
-							tal:condition="dashboard_props">
+							tal:condition="view/dashboard_props">
 	                        	<option value=""><tal:block i18n:translate="">choose Portlet</tal:block></option>
-	                        	<tal:portlets tal:repeat="p python:dashboard_props.addable_portlets">
-	                            	<option tal:attributes="value string:/++dashboard++plone.dashboard1+${userid}/+/${p}">
-	                                	<span tal:replace="p/title" i18n:translate="">portlet</span>
+	                        	<tal:portlets tal:repeat="p view/registered_portlelts">
+	                            	<option tal:attributes="value string:/++dashboard++plone.dashboard1+${userid}/+/${p/id}"
+	                                	tal:content="p/title" i18n:translate=""> portlet
 	                            	</option>
 	                        	</tal:portlets>
 						</select>
