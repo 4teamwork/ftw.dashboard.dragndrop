@@ -26,6 +26,7 @@ Number of Dashboard-Columns.
 
 addablePortlets: 
 the portlets wich show in the add portlet Dropdown
+You can use "portlet.Calendar" or "portlet.Calendar:Portlet Calendar", after colon is a user friendly name - added in release 1.1
 
 Provided features:
 ==================

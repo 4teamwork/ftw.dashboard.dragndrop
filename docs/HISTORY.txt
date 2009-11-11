@@ -5,6 +5,10 @@ Changelog
 1.1
 ---
 
+* In selection to add new portlet in dashboard, can have a user friendly 
+  name, in stead of portlet.Calendar, you can use Calendar, just in 
+  addable_portlets use: portlet.Calendar:Calendar 
+  [lucmult]
 
 1.0
 ---
