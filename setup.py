@@ -20,7 +20,7 @@ setup(name='ftw.dashboard.dragndrop',
       url='http://plone.org/products/ftw.dashboard.dragndrop/',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['ftw'],
+      namespace_packages=['ftw', 'ftw.dashboard'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[

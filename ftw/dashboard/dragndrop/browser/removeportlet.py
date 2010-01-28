@@ -5,6 +5,7 @@ from plone.portlets.utils import unhashPortletInfo
 from plone.portlets.interfaces import IPortletManager
 from plone.portlets.constants import USER_CATEGORY
 
+
 class RemovePortlet(BrowserView):
 
     def __call__(self, *args, **kwargs):
@@ -25,4 +26,3 @@ class RemovePortlet(BrowserView):
         # get portlet
         portlet = column.get(portlet_info['name'])
         return column, portlet
- 

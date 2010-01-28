@@ -1,10 +1,6 @@
 from Products.Five.browser import BrowserView
-from zope.component import adapts, getMultiAdapter, queryMultiAdapter,getUtility
-from plone.portlets.interfaces import IPortletAssignmentMapping
-from plone.portlets.interfaces import IPortletManager
-from Products.CMFCore.utils import getToolByName
 
-from plone.portlets.utils import unhashPortletInfo, hashPortletInfo
+from plone.portlets.utils import unhashPortletInfo
 
 class DashboardEditLinkView(BrowserView):
     

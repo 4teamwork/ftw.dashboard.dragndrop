@@ -1,16 +1,12 @@
-from Acquisition import Explicit, aq_base, aq_parent, aq_inner
+from Acquisition import aq_base
 from Products.Five import BrowserView
-from zope.component import getMultiAdapter, getUtility
+from zope.component import getUtility
 
-from plone.app.portlets.interfaces import IDashboard, IPortletPermissionChecker
-from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.app.portlets.storage import UserPortletAssignmentMapping
 from plone.portlets.interfaces import IPortletManager
 from plone.portlets.constants import USER_CATEGORY
 
 from plone.portlets.utils import unhashPortletInfo, hashPortletInfo
-
-from zope.component import getAllUtilitiesRegisteredFor
 
 
 class UpdateOrder(BrowserView):
@@ -29,13 +25,12 @@ class UpdateOrder(BrowserView):
             for i in range(len(portlets)):
                 replace_hashes += self.reorder_portlet(column, i, portlets[i])
         return ';'.join([':'.join(x) for x in replace_hashes])
-        
 
     def reorder_portlet(self, new_column_name, new_index, hash):
         portlet_info = unhashPortletInfo(hash)
         name = portlet_info['name']
         column, portlet = self.get_column_and_portlet(portlet_info)
-        
+
         keys = list(column.keys())
         if name in keys:
             idx = keys.index(name)
@@ -98,4 +93,3 @@ def update_dashboard_order(self, *args, **kwargs):
     # XXX : used for development as external method
     view = UpdateOrder(self, self.REQUEST)
     return view(*args, **kwargs)
-

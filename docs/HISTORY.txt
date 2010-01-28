@@ -1,7 +1,9 @@
 Changelog
 =========
 
-
+1.1
+---
+added some small changes, removed unnessecary javscript and imports
 1.0
 ---
 initial release
