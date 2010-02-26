@@ -2,7 +2,7 @@ from plone.app.layout.dashboard.dashboard import DashboardView
 
 
 class FTWDashBoard(DashboardView):
-    """ Improve the default Plone Dashboard """ 
+    """ Improve the default Plone Dashboard """
 
     def registered_portlelts(self):
         """ Returns the registered portlets in a list with 2 item tuple
@@ -18,7 +18,7 @@ class FTWDashBoard(DashboardView):
                     title = ''.join(parts[1:])
                 else:
                     id_ = title = portlet
-	        ret.append(dict(id=id_, title=title))
+            ret.append(dict(id=id_, title=title))
         return ret
 
     def dashboard_props(self):

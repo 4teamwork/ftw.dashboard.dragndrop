@@ -21,7 +21,7 @@
     <browser:page
         for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
         name="dashboard"
-	class=".dashboard.FTWDashBoard"
+	    class=".dashboard.FTWDashBoard"
         permission="plone.app.portlets.ManageOwnPortlets"
         template="templates/dashboard.pt"
         />
@@ -40,7 +40,7 @@
 		for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
 		name="manage-dashboard"
 		permission="plone.app.portlets.ManageOwnPortlets"
-		class="plone.app.layout.dashboard.dashboard.DashboardView"
+        class=".dashboard.FTWDashBoard"
 		template="templates/manage-dashboard.pt"
 		/>
 	
