@@ -18,7 +18,7 @@ class FTWDashBoard(DashboardView):
                     title = ''.join(parts[1:])
                 else:
                     id_ = title = portlet
-            ret.append(dict(id=id_, title=title))
+                ret.append(dict(id=id_, title=title))
         return ret
 
     def dashboard_props(self):
