@@ -5,6 +5,9 @@ Changelog
 1.1
 ---
 
+* Added helper methods editable_url() and is_editable() to dashboard view
+  [18.03.2010, jbaumann]
+  
 * added the new user friendly name function, also for the manage-dashboard page
   [26.02.2010, phgross]
 
