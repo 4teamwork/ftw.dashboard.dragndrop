@@ -51,7 +51,7 @@
         </div>
 		</tal:editable>
 
-        <div class="documentContent" id="content">
+        <div class="documentContent dashboardContent manageDashboard" id="content">
 
             <a name="documentContent"></a>
                     

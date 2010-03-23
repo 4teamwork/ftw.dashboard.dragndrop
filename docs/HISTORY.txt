@@ -5,6 +5,9 @@ Changelog
 1.2
 ---
 
+* Added some additional css classes
+  [23.03.2010, jbaumann]
+  
 
 1.1
 ---
