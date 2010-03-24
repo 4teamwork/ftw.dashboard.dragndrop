@@ -8,6 +8,8 @@ Changelog
 * Added some additional css classes
   [23.03.2010, jbaumann]
   
+* Removed unused configlet icons 
+  [24.03.2010, fsprenger]
 
 1.1
 ---
