@@ -4,9 +4,9 @@ Changelog
 
 1.1.2
 -----
+* Removed unused livequery.js in the jsregistry
 
-
-1.2
+1.1.1
 ---
 
 * Added some additional css classes
