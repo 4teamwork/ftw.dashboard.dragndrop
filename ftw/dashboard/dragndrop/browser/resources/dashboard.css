@@ -1,5 +1,8 @@
 .dashboard-column {
     padding-bottom: 10em !important;
+    display:inline-block;
+    float:left;
+    width:25%;
 }
 .ui-sortable-placeholder {
     border: 1px dotted black;
@@ -11,6 +14,8 @@
 }
 .portletwrapper {
     background-color: white;
+    padding-right:1em;
+    padding-left:1em;
 }
 .portletHeader {
     cursor: move;
@@ -24,12 +29,6 @@ span.noEntries {
     width:20.6em;
     display:block;
     padding:0.5em;
-}
-
-
-.portletItemEmpty {
-    border-left:1px solid #B2CBDC;
-    border-right:1px solid #B2CBDC;
 }
 
 .folded dd, .folded form{
