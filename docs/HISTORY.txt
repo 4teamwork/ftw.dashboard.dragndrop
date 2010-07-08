@@ -5,6 +5,9 @@ Changelog
 1.2.0
 -----
 
+* updated jquery.ui version for correct plone4 support 
+  [08.07.2010, phgross]
+
 * fixed some templates and css styles, so that it work's fine with plone4
   [07.07.2010, phgross]
 
