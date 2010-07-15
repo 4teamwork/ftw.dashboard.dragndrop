@@ -7,9 +7,9 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="ftw.dashboard.dragndrop">
 
-	<include package="plone.contentrules" />
-    <include package="plone.contentrules" file="meta.zcml" />
- 	<include package="collective.js.jqueryui" />
+    <!-- Include configuration for dependencies listed in setup.py -->
+    <includeDependencies package="." />
+
 	<include package=".browser" />
 
 	<!-- Register the installation GenericSetup extension profile -->
@@ -40,4 +40,5 @@
         name="icon_edit_box.gif"
         file="icons/icon_edit_box.gif"
         />
+
 </configure>

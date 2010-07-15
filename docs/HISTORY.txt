@@ -2,8 +2,13 @@ Changelog
 =========
 
 
-1.2.0
------
+1.2.0-dev
+---------
+
+* Fixed package namespace declaration [Thomas Buchberger]
+
+* Added z3c.autoinclude entry point to mark this as a Plone plugin
+  [Thomas Buchberger]
 
 * updated jquery.ui version for correct plone4 support 
   [08.07.2010, phgross]
