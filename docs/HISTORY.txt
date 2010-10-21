@@ -4,6 +4,7 @@ Changelog
 
 1.2.0-dev
 ---------
+* Fixed missing 'var' in JS
 
 * Fixed package namespace declaration [Thomas Buchberger]
 
