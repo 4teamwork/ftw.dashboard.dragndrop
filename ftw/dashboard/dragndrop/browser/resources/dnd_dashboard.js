@@ -59,7 +59,7 @@ jq(function() {
                     
                     //kss attribute portlethash must be fixed
                     if(jq('#portletwrapper-'+ oldHash).hasClass('kssattr-portlethash-'+oldHash)){
-                        classes = jq('#portletwrapper-' + oldHash)[0].getAttribute('class');
+                        var classes = jq('#portletwrapper-' + oldHash)[0].getAttribute('class');
                         classes = classes.replace('kssattr-portlethash-' + oldHash, 'kssattr-portlethash-'+ newHash);
                         jq('#portletwrapper-'+ oldHash)[0].setAttribute('class', classes);
                     }
