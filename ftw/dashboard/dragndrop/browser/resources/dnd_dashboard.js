@@ -60,8 +60,10 @@ jq(function() {
                     //kss attribute portlethash must be fixed
                     if(jq('#portletwrapper-'+ oldHash).hasClass('kssattr-portlethash-'+oldHash)){
                         var classes = jq('#portletwrapper-' + oldHash)[0].getAttribute('class');
-                        classes = classes.replace('kssattr-portlethash-' + oldHash, 'kssattr-portlethash-'+ newHash);
-                        jq('#portletwrapper-'+ oldHash)[0].setAttribute('class', classes);
+                        if(classes!=null) {
+                            classes = classes.replace('kssattr-portlethash-' + oldHash, 'kssattr-portlethash-'+ newHash);
+                            jq('#portletwrapper-'+ oldHash)[0].setAttribute('class', classes);
+                        }
                     }
                     
                     jq('#portletwrapper-' + oldHash)[0].setAttribute('id', 'portletwrapper-' + newHash);
