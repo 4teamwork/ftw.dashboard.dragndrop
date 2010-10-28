@@ -47,28 +47,28 @@
     <browser:page
         for="*"
         name="ftw.dashboard.dragndrop-update_order"
-        permission="zope.Public"
+        permission="zope2.View"
         class=".updateorder.UpdateOrder"
         />
 
     <browser:page
         for="*"
         name="ftw.dashboard.dragndrop-removeportlet"
-        permission="zope.Public"
+        permission="zope2.View"
         class=".removeportlet.RemovePortlet"
         />
 
     <browser:page
         for="*"
         name="ftw.dashboard.dragndrop-foldportlet"
-        permission="zope.Public"
+        permission="zope2.View"
         class=".foldportlet.FoldPortlet"
         />
     
     <browser:page
         for="*"
         name="reset-dashboard"
-        permission="zope.Public"
+        permission="zope2.View"
         class=".reset.ResetView"
         />
         
