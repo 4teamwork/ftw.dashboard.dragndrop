@@ -1,24 +1,28 @@
 from setuptools import setup, find_packages
 import os
 
-version = open("ftw/dashboard/dragndrop/version.txt").read().strip()
+version = '1.1.5dev'
+maintainer = 'Mathias Leimgruber'
 
 setup(name='ftw.dashboard.dragndrop',
       version=version,
-      description="ftw.dashboard.dragndrop is product wich add dragndrop functionality to the dashboard",
-      long_description=open("README.txt").read() + "\n" +
+      description="ftw.dashboard.dragndrop adds dragndrop "
+        "functionality to the dashboard",
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
+        "Framework :: Plone :: 4.0",
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='',
-      author='philippe gross, 4teamwork GmbH',
+      author='4teamwork GmbH',
       author_email='mailto:info@4teamwork.ch',
-      url='http://plone.org/products/ftw.dashboard.dragndrop/',
-      license='GPL',
+      maintainer=maintainer,
+      url='https://github.com/4teamwork/ftw.dashboard.dragndrop',
+      license='GPL2',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['ftw', 'ftw.dashboard'],
       include_package_data=True,
