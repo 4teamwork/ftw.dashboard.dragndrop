@@ -23,7 +23,7 @@ class FTWDashBoard(DashboardView):
 
 
     def dashboard_props(self):
-        return
+        return getattr(self.context.portal_properties, 'ftw.dashboard', None)
 
     def registered_portlelts(self):
         """ Returns the registered portlets in a list with 2 item tuple
