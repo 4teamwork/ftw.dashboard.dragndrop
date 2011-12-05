@@ -20,19 +20,13 @@
     present from main_template.
 </tal:comment>
 
-<tal:if condition="not: view/showleftcolumn">
-    <metal:left fill-slot="column_one_slot" />
-</tal:if>    
-<tal:if condition="not: view/showrightcolumn">
-    <metal:right fill-slot="column_two_slot" />
-</tal:if>    
-
-
 <metal:main fill-slot="content">
     <tal:main-macro metal:define-macro="main"
                     tal:define="memberinfo here/portal_membership/getMemberInfo;
                                 member context/@@plone_portal_state/member;
                                 name python:memberinfo['fullname'] or member.getId() or member.getId()">
+
+
     <div tal:define="editable python: not (context.portal_properties.get('ftw.dashboard', False) and context.portal_properties.get('ftw.dashboard').getProperty('dashboardEditable', False)) and 'documentEditable'"
 
        tal:attributes="id string:regio-content;
