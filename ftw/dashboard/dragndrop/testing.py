@@ -26,7 +26,6 @@ class FtwDashboardDragnDropLayer(PloneSandboxLayer):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'ftw.dashboard.dragndrop:default')
 
-
 FTW_DASHBOARD_DRAGNDROP_FIXTURE = FtwDashboardDragnDropLayer()
 FTW_DASHBOARD_DRAGNDROP_INTEGRATION_TESTING = IntegrationTesting(
     bases=(FTW_DASHBOARD_DRAGNDROP_FIXTURE, ),

@@ -13,9 +13,13 @@ class FTWDashBoard(DashboardView):
             None)
 
         if not self.showleftcolumn:
-            request.set('disable_plone.leftcolumn', 1)
+            request.set('disable_plone.leftcolumn', True)
+        else:
+            request.set('disable_plone.leftcolumn', False)
         if not self.showrightcolumn:
-            request.set('disable_plone.rightcolumn', 1)
+            request.set('disable_plone.rightcolumn', True)
+        else:
+            request.set('disable_plone.rightcolumn', False)
 
 
     def dashboard_props(self):
