@@ -9,5 +9,7 @@
         <element value="portlets.Classics"/>
       </property>
     <property name="columnNumber" type="int">4</property>
+    <property name="showleftcolumn" type="boolean">False</property>
+    <property name="showleftcolumn" type="boolean">False</property>
  </object>
 </object>

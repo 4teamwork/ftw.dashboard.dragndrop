@@ -4,13 +4,23 @@ from plone.app.layout.dashboard.dashboard import DashboardView
 class FTWDashBoard(DashboardView):
     """ Improve the default Plone Dashboard """
 
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+        self.props = getattr(
+            self.context.portal_properties,
+            'ftw.dashboard',
+            None)
+
+    def dashboard_props(self):
+        return
+
     def registered_portlelts(self):
         """ Returns the registered portlets in a list with 2 item tuple
         [('id', 'user friendly'), ( 'id2', 'Another Portlet')] """
-        props = self.dashboard_props()
         ret = []
-        if props:
-            portlets = props.addable_portlets
+        if self.props:
+            portlets = self.props.addable_portlets
             for portlet in portlets:
                 if ':' in portlet:
                     parts = portlet.split(':')
@@ -21,5 +31,10 @@ class FTWDashBoard(DashboardView):
                 ret.append(dict(id=id_, title=title))
         return ret
 
-    def dashboard_props(self):
-        return getattr(self.context.portal_properties, 'ftw.dashboard', None)
+    @property
+    def showleftcolumn(self):
+        return bool(getattr(self.props, 'showleftcolumn', False))
+
+    @property
+    def showrightcolumn(self):
+        return bool(getattr(self.props, 'showrightcolumn', False))
