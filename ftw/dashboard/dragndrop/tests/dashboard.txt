@@ -1,0 +1,11 @@
+Set manager role for test user
+
+    >>> from plone.app.testing import TEST_USER_NAME
+    >>> from plone.app.testing import setRoles
+    >>> setRoles(portal, TEST_USER_NAME, ['Manager',])
+
+Default behavior: 4 dashboard columns
+
+    >>> portal = layer['portal']
+    >>> 'dashboard-portlets1' in portal.restrictedTraverse(portal.absolute_url() + '/dashboard')
+    1
