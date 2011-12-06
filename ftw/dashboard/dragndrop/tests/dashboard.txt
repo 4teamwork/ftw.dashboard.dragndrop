@@ -7,6 +7,9 @@ Set manager role for test user
     >>> setRoles(portal, TEST_USER_ID, ['Manager',])
     >>> props = portal.portal_properties.get('ftw.dashboard')
 
+collective.js.jqueryui needs a LANGUAGE
+    >>> portal.REQUEST.set('LANGUAGE', 'en')
+
 
 Default behavior: 4 dashboard columns
 

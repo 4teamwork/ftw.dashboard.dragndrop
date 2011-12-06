@@ -5,10 +5,17 @@ from ftw.dashboard.dragndrop.testing import \
     FTW_DASHBOARD_DRAGNDROP_INTEGRATION_TESTING
 
 
+DOCTEST_FILES = [
+    'dashboard.txt', 
+    'dashboard_edit.txt', 
+    ]
+
+
 def test_suite():
     suite = unittest.TestSuite()
-    suite.addTests([
-        layered(doctest.DocFileSuite('dashboard.txt'),
-                layer=FTW_DASHBOARD_DRAGNDROP_INTEGRATION_TESTING),
-    ])
+    for doctest_file in DOCTEST_FILES:
+        suite.addTests([
+            layered(doctest.DocFileSuite(doctest_file),
+                    layer=FTW_DASHBOARD_DRAGNDROP_INTEGRATION_TESTING),
+        ])
     return suite

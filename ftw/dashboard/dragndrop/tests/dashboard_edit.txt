@@ -1,0 +1,57 @@
+Set manager role for test user
+
+    >>> from plone.app.testing import TEST_USER_ID, TEST_USER_PASSWORD
+    >>> from plone.app.testing import TEST_USER_NAME
+    >>> from plone.app.testing import setRoles
+    >>> from plone.testing.z2 import Browser
+    >>> import transaction
+
+    >>> portal = layer['portal']
+    >>> portal_url = portal.absolute_url()
+    >>> setRoles(portal, TEST_USER_ID, ['Manager',])
+    >>> transaction.commit()
+    >>> props = portal.portal_properties.get('ftw.dashboard')
+
+Define browser client
+    >>> browser = Browser(layer['app'])
+
+Login
+    >>> browser.open(portal_url + '/login_form')
+    >>> browser.getControl(name='__ac_name').value = TEST_USER_NAME
+    >>> browser.getControl(name='__ac_password').value = TEST_USER_PASSWORD
+    >>> browser.getControl(name='submit').click()
+
+
+Open dashboard 
+    >>> browser.open(portal_url + '/dashboard')
+
+Content views should be available to switch between edit- and view-mode
+    >>> 'content-views' in browser.contents
+    True
+
+Set dashboardEditable, so it should be possible to manage your portlets
+directly.    
+    >>> props._setPropValue('dashboardEditable', True)
+    >>> transaction.commit()
+    >>> browser.open(portal_url + '/dashboard')
+
+No content-view, because it is no necessary to switch
+    >>> 'content-views' not in browser.contents
+    True
+
+There should be three portlets available. 
+
+    >>> 'portlets.rss' in browser.contents
+    True
+    >>> 'portlets.Calendar' in browser.contents
+    True
+    >>> 'portlets.Classics' in browser.contents
+    True
+
+Add a Calendar portlet
+
+    >>> browser.open(portal_url + '/++dashboard++plone.dashboard1+' + TEST_USER_ID + '/+/portlets.Calendar')
+    >>> browser.open(portal_url + '/dashboard')
+    >>> 'portletCalendar' in browser.contents
+    True
+
