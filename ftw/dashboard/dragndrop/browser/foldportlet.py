@@ -26,5 +26,3 @@ class FoldPortlet(BrowserView):
         # get portlet
         portlet = column.get(portlet_info['name'])
         return column, portlet
-
-    
