@@ -55,3 +55,19 @@ Add a Calendar portlet
     >>> 'portletCalendar' in browser.contents
     True
 
+There should be the same in 
+
+    >>> browser.open(portal_url + '/manage-dashboard')
+    >>> 'portletCalendar' in browser.contents
+    True
+
+
+Test human readable name for addable portlets
+
+    >>> old = props.getProperty('addable_portlets')
+    >>> props._setPropValue('addable_portlets', ['demo.portlet:PortletTitle'])
+    >>> transaction.commit()
+    >>> browser.open(portal_url + '/dashboard')
+    >>> 'PortletTitle' in browser.contents
+    True
+
