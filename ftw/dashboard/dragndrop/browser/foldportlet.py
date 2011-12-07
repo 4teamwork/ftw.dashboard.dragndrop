@@ -5,6 +5,7 @@ from plone.portlets.utils import unhashPortletInfo
 from plone.portlets.interfaces import IPortletManager
 from plone.portlets.constants import USER_CATEGORY
 
+
 class FoldPortlet(BrowserView):
 
     def __call__(self, *args, **kwargs):
@@ -19,8 +20,11 @@ class FoldPortlet(BrowserView):
 
     def get_column_and_portlet(self, portlet_info):
         # get column
-        column_manager = getUtility(IPortletManager, name=portlet_info['manager'])
-        userid = self.context.portal_membership.getAuthenticatedMember().getId()
+        column_manager = getUtility(
+            IPortletManager,
+            name=portlet_info['manager'])
+        userid = self.context.portal_membership.getAuthenticatedMember()\
+            .getId()
         column = column_manager.get(USER_CATEGORY, {}).get(userid, {})
 
         # get portlet
