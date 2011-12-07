@@ -1,0 +1,65 @@
+Set manager role for test user
+
+    >>> from plone.app.testing import TEST_USER_ID
+    >>> from plone.app.testing import setRoles
+
+    >>> portal = layer['portal']
+    >>> setRoles(portal, TEST_USER_ID, ['Manager',])
+    >>> props = portal.portal_properties.get('ftw.dashboard')
+
+collective.js.jqueryui needs a LANGUAGE
+    >>> portal.REQUEST.set('LANGUAGE', 'en')
+
+
+Default behavior: 4 dashboard columns
+
+    >>> rendered = portal.restrictedTraverse('/plone/dashboard')
+    >>> 'dashboard-portlets1' in rendered()
+    True
+    >>> 'dashboard-portlets2' in rendered()
+    True
+    >>> 'dashboard-portlets3' in rendered()
+    True
+    >>> 'dashboard-portlets4' in rendered()
+    True
+    >>> rendered.request.get('disable_plone.rightcolumn', False)
+    True
+    >>> rendered.request.get('disable_plone.leftcolumn', False)
+    True
+    
+    
+Show portal-column-two and three 3 dashboard columns
+
+    >>> props._setPropValue('showrightcolumn', True)
+    >>> props._setPropValue('columnNumber', 3)
+    >>> rendered = portal.restrictedTraverse('/plone/dashboard')
+    >>> 'dashboard-portlets1' in rendered()
+    True
+    >>> 'dashboard-portlets2' in rendered()
+    True
+    >>> 'dashboard-portlets3' in rendered()
+    True
+    >>> 'dashboard-portlets4' in rendered()
+    False
+    >>> rendered.request.get('disable_plone.rightcolumn', False)
+    False
+
+Show portal-column-one, portal-column-two and two 3 dashboard columns
+
+    >>> props._setPropValue('showrightcolumn', True)
+    >>> props._setPropValue('showleftcolumn', True)
+    >>> props._setPropValue('columnNumber', 2)
+    >>> rendered = portal.restrictedTraverse('/plone/dashboard')
+    >>> 'dashboard-portlets1' in rendered()
+    True
+    >>> 'dashboard-portlets2' in rendered()
+    True
+    >>> 'dashboard-portlets3' in rendered()
+    False
+    >>> 'dashboard-portlets4' in rendered()
+    False
+    >>> rendered.request.get('disable_plone.leftcolumn', False)
+    False
+    >>> rendered.request.get('disable_plone.rightcolumn', False)
+    False
+

@@ -20,20 +20,19 @@
     present from main_template.
 </tal:comment>
 
-<metal:left fill-slot="column_one_slot" />
-<metal:right fill-slot="column_two_slot" />
-
 <metal:main fill-slot="content">
     <tal:main-macro metal:define-macro="main"
                     tal:define="memberinfo here/portal_membership/getMemberInfo;
                                 member context/@@plone_portal_state/member;
                                 name python:memberinfo['fullname'] or member.getId() or member.getId()">
-    <div tal:define="editable python: not (context.portal_properties.get('ftw.dashboard', False) and context.portal_properties.get('ftw.dashboard').getProperty('dashboardEditable', False)) and 'documentEditable'"
+
+
+    <div tal:define="editable python: view.dashboard_props().getProperty('dashboardEditable', False)"
 
        tal:attributes="id string:regio-content;
-                       class editable;" >
+                       class python:editable and 'documentEditable' or ''" >
         <h5 class="hiddenStructure">Views</h5>
-        <tal:editable tal:condition="not:python:context.portal_properties.get('ftw.dashboard') and context.portal_properties.get('ftw.dashboard').getProperty('dashboardEditable')">
+        <tal:editable tal:condition="not:editable">
         <ul
 			id="content-views"
 			class="contentViews">
@@ -85,12 +84,13 @@
             </dl>
             
             <div id="dashboard">
-				<div id="dashboard-add-portlet" tal:condition="python:context.portal_properties.get('ftw.dashboard') and context.portal_properties.get('ftw.dashboard').getProperty('dashboardEditable')" tal:define="referer python:context.absolute_url()+'/'+ view.__name__;
+				<div tal:condition="editable" id="dashboard-add-portlet" tal:define="referer python:context.absolute_url()+'/'+ view.__name__;
 								userid python:member.getId();">
 					<form tal:attributes="action python:context.portal_url()">
 	                    <textarea style="display:none" tal:content="referer" name="referer"></textarea>
 						<select name=":action"
-							tal:condition="view/dashboard_props">
+							tal:define="dashboard_props python: getattr(context.portal_properties,'ftw.dashboard', None);"
+							tal:condition="dashboard_props">
 	                        	<option value=""><tal:block i18n:translate="">choose Portlet</tal:block></option>
 	                        	<tal:portlets tal:repeat="p view/registered_portlelts">
 	                            	<option tal:attributes="value string:/++dashboard++plone.dashboard1+${userid}/+/${p/id}"
