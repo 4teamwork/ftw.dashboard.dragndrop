@@ -9,6 +9,7 @@ DOCTEST_FILES = [
     'dashboard.txt', 
     'dashboard_edit.txt', 
     'dashboard_reset.txt', 
+    'portlet_actions.txt', 
     ]
 
 
