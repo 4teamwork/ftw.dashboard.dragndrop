@@ -9,9 +9,9 @@ from plone.portlets.constants import USER_CATEGORY
 class FoldPortlet(BrowserView):
 
     def __call__(self, *args, **kwargs):
-        hash = self.request.get('hash')
+        _hash = self.request.get('hash')
         folded = self.request.get('folded')
-        portlet_info = unhashPortletInfo(hash)
+        portlet_info = unhashPortletInfo(_hash)
         column, portlet = self.get_column_and_portlet(portlet_info)
 
         if portlet_info['name'] in column.keys():

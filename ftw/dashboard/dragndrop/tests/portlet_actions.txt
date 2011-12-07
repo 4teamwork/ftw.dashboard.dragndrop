@@ -76,3 +76,17 @@ Double check the result
     http://nohost/plone/++dashboard++plone.dashboard1+test_user_1_/rss-http-www-heise-de/edit?referer=localhost
     >>> 'Edit RSS Portlet' in browser.contents
     True
+    
+Fold portlet
+
+    >>> browser.open('ftw.dashboard.dragndrop-foldportlet?folded=1&hash='+portlethash)
+
+Check portlet has attr isFolded ( and it should be True)
+
+    >>> from zope.component import getUtility
+    >>> from plone.portlets.interfaces import IPortletManager
+    >>> column_manager = getUtility(IPortletManager, name='plone.dashboard1')
+    >>> column = column_manager.get(USER_CATEGORY, {}).get(TEST_USER_ID, {})
+    >>> portlet = column.get('rss-http-www-heise-de')
+    >>> getattr(portlet, 'isFolded', False)
+    True
