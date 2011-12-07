@@ -13,10 +13,10 @@ class UpdateOrder(BrowserView):
         # prepare submitted data
         dashboard = {}
         for portlet in self.request.get('portlets'):
-            column, hash = portlet.split(':')
+            column, _hash = portlet.split(':')
             if column not in dashboard.keys():
                 dashboard[column] = []
-            dashboard[column].append(hash)
+            dashboard[column].append(_hash)
         replace_hashes = []
         # reorder portlets
         for column, portlets in dashboard.items():
@@ -24,10 +24,10 @@ class UpdateOrder(BrowserView):
                 replace_hashes += self.reorder_portlet(column, i, portlets[i])
         return ';'.join([':'.join(x) for x in replace_hashes])
 
-    def reorder_portlet(self, new_column_name, new_index, hash):
-        portlet_info = unhashPortletInfo(hash)
+    def reorder_portlet(self, new_column_name, new_index, _hash):
+        portlet_info = unhashPortletInfo(_hash)
         name = portlet_info['name']
-        column, portlet = self.get_column_and_portlet(portlet_info)
+        column = self.get_column_and_portlet(portlet_info)[0]
 
         keys = list(column.keys())
         if name in keys:
@@ -35,10 +35,10 @@ class UpdateOrder(BrowserView):
             keys.insert(new_index, name)
             column.updateOrder(keys)
 
-        if column.__manager__!=new_column_name:
+        if column.__manager__ != new_column_name:
             new_column = self.get_column_by_name(new_column_name)
             newhash = self.move_portlet_to_column(portlet_info, new_column)
-            return [(hash, newhash)]
+            return [(_hash, newhash)]
         else:
             return []
 
@@ -62,7 +62,7 @@ class UpdateOrder(BrowserView):
         category = column_manager.get(USER_CATEGORY, {})
         notfound = object()
         manager = category.get(userid, notfound)
-        if manager==notfound:
+        if manager == notfound:
             manager = category[userid] = \
                 UserPortletAssignmentMapping(
                     manager=column_name,
