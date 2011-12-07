@@ -44,7 +44,18 @@ Construct hash for the exitsing calendar portlet
     ...    name = 'calendar')
     >>> portlethash = hashPortletInfo(info)
     >>> params = '?hash=%s' % portlethash
+
+Remove Portlet
+
     >>> browser.open(url + params)
     >>> browser.open(portal_url + '/dashboard')
     >>> 'portletCalendar' in browser.contents
     False
+    
+    
+Add a new editable portlets (rss portlet)
+
+    >>> url = '/++dashboard++plone.dashboard1+' + TEST_USER_ID + '/+/portlets.rss'
+    >>> browser.open(portal_url + url)
+    >>> browser.getControl(name='form.url').value = u'http://www.heise.de/newsticker/heise.rdf''
+    >>> browser.getControl(name='form.actions.save').click()
