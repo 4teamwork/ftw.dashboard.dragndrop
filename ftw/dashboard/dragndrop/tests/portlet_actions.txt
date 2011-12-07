@@ -90,3 +90,40 @@ Check portlet has attr isFolded ( and it should be True)
     >>> portlet = column.get('rss-http-www-heise-de')
     >>> getattr(portlet, 'isFolded', False)
     True
+    
+    
+Test reordering of portlets
+For this case, add one more portlet to the same as the rss portlet is
+
+    >>> url = '/++dashboard++plone.dashboard1+' + TEST_USER_ID + '/+/portlets.Calendar'
+    >>> browser.open(portal_url + url)
+
+Create parameter for reorder function
+The reorder function looks for "portlets:list"
+btw: info is still out rss portlet (first position)
+    >>> portlet1 = 'portlets:list=plone.dashboard1:' + portlethash
+
+Second portet
+    >>> info2 = dict(manager = 'plone.dashboard1',
+    ...    category = USER_CATEGORY,
+    ...    key = TEST_USER_ID,
+    ...    name = 'calendar')
+    >>> portlethash2 = hashPortletInfo(info)
+    >>> portlet2 = 'portlets:list=plone.dashboard1:' + portlethash2
+
+Currently portlet1 is rendered befor portlet2
+    
+    >>> browser.open(portal_url + "/dashboard")
+    >>> browser.contents.find('portletRss') < browser.contents.find('portletCalendar')
+    True
+
+    Change the order
+    
+    >>> url = '/ftw.dashboard.dragndrop-update_order?%s&%s' % (portlet2, portlet1)
+    >>> browser.open(portal_url + url)
+    >>> browser.open(portal_url + "/dashboard")
+
+Now the rss portlet should be rendered after the calendar portelt
+
+    >>> browser.contents.find('portletRss') > browser.contents.find('portletCalendar')
+    True

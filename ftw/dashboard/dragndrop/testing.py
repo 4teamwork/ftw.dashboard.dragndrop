@@ -5,6 +5,9 @@ from plone.app.testing import IntegrationTesting
 from plone.testing import z2
 from zope.configuration import xmlconfig
 
+import ftw.dashboard.dragndrop
+import collective.js.jqueryui
+
 
 class FtwDashboardDragnDropLayer(PloneSandboxLayer):
 
@@ -12,8 +15,7 @@ class FtwDashboardDragnDropLayer(PloneSandboxLayer):
 
     def setUpZope(self, app, configurationContext):
         # Load ZCML
-        import ftw.dashboard.dragndrop
-        import collective.js.jqueryui
+
         xmlconfig.file('configure.zcml',
             ftw.dashboard.dragndrop,
             context=configurationContext)
