@@ -1,0 +1,50 @@
+Set manager role for test user
+
+    >>> from plone.app.testing import TEST_USER_ID, TEST_USER_NAME
+    >>> from plone.app.testing import TEST_USER_PASSWORD
+    >>> from plone.portlets.constants import USER_CATEGORY
+    >>> from plone.testing.z2 import Browser
+    >>> import transaction
+    >>> from plone.portlets.utils import unhashPortletInfo, hashPortletInfo
+
+    >>> portal = layer['portal']
+    >>> portal_url = portal.absolute_url()
+
+    >>> props = portal.portal_properties.get('ftw.dashboard')
+
+    >>> portal = layer['portal']
+    >>> portal_url = portal.absolute_url()
+    >>> props = portal.portal_properties.get('ftw.dashboard')
+
+Define browser client
+    >>> browser = Browser(layer['app'])
+
+Login
+    >>> browser.open(portal_url + '/login_form')
+    >>> browser.getControl(name='__ac_name').value = TEST_USER_NAME
+    >>> browser.getControl(name='__ac_password').value = TEST_USER_PASSWORD
+    >>> browser.getControl(name='submit').click()
+
+
+Add again a Calendar portlet
+
+    >>> browser.open(portal_url + '/++dashboard++plone.dashboard1+' + TEST_USER_ID + '/+/portlets.Calendar')
+    >>> browser.open(portal_url + '/dashboard')
+    >>> browser.contents.count('portletCalendar')
+    1
+    
+Test remove action for the given portlets
+    >>> url = portal_url + '/ftw.dashboard.dragndrop-removeportlet'
+
+Construct hash for the exitsing calendar portlet
+
+    >>> info = dict(manager = 'plone.dashboard1',
+    ...    category = USER_CATEGORY,
+    ...    key = TEST_USER_ID,
+    ...    name = 'calendar')
+    >>> portlethash = hashPortletInfo(info)
+    >>> params = '?hash=%s' % portlethash
+    >>> browser.open(url + params)
+    >>> browser.open(portal_url + '/dashboard')
+    >>> 'portletCalendar' in browser.contents
+    False
