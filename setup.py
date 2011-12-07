@@ -4,13 +4,18 @@ import os
 version = '1.1.5dev'
 maintainer = 'Mathias Leimgruber'
 
+tests_require = [
+    'plone.app.testing',
+]
+
 setup(name='ftw.dashboard.dragndrop',
       version=version,
       description="ftw.dashboard.dragndrop adds dragndrop "
         "functionality to the dashboard",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
+      # Get more strings from 
+      # http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
         "Framework :: Plone :: 4.0",
@@ -29,7 +34,10 @@ setup(name='ftw.dashboard.dragndrop',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'collective.js.jqueryui',
       ],
+      tests_require=tests_require,
+      extras_require=dict(tests=tests_require),
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]

@@ -1,0 +1,42 @@
+Set manager role for test user
+
+    >>> from plone.app.testing import TEST_USER_ID, TEST_USER_NAME
+    >>> from plone.app.testing import TEST_USER_PASSWORD
+    >>> from plone.testing.z2 import Browser
+    >>> import transaction
+
+    >>> portal = layer['portal']
+    >>> portal_url = portal.absolute_url()
+
+    >>> props = portal.portal_properties.get('ftw.dashboard')
+
+    >>> portal = layer['portal']
+    >>> portal_url = portal.absolute_url()
+    >>> props = portal.portal_properties.get('ftw.dashboard')
+
+Define browser client
+    >>> browser = Browser(layer['app'])
+
+Login
+    >>> browser.open(portal_url + '/login_form')
+    >>> browser.getControl(name='__ac_name').value = TEST_USER_NAME
+    >>> browser.getControl(name='__ac_password').value = TEST_USER_PASSWORD
+    >>> browser.getControl(name='submit').click()
+
+
+
+Add a Calendar portlet to every column, columne one has already a 
+calendar portlet (defined in previous tests)
+
+    >>> browser.open(portal_url + '/++dashboard++plone.dashboard2+' + TEST_USER_ID + '/+/portlets.Calendar')
+    >>> browser.open(portal_url + '/++dashboard++plone.dashboard3+' + TEST_USER_ID + '/+/portlets.Calendar')
+    >>> browser.open(portal_url + '/++dashboard++plone.dashboard4+' + TEST_USER_ID + '/+/portlets.Calendar')
+    >>> browser.open(portal_url + '/dashboard')
+    >>> browser.contents.count('portletCalendar')
+    4
+    
+    >>> browser.open(portal_url + '/reset-dashboard')
+    >>> browser.open(portal_url + '/dashboard')
+    >>> browser.contents.count('portletCalendar')
+    0
+
