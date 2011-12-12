@@ -34,6 +34,7 @@ span.noEntries {
 .folded dd, .folded form{
     display: none;
     visibility: hidden;
+    width:100%;
 }
 
 
@@ -41,10 +42,6 @@ span.noEntries {
 #dashboard-add-portlet form{
 	float:left;
 	display:block;
-}
-
-#dashboard select {
-width:70%;
 }
 
 div#dashboard #dashboard-add-portlet {
