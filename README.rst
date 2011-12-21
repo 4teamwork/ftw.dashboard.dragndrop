@@ -10,7 +10,7 @@ Features:
     all portlets can moved with dragndrop functionality from column to column and also in the column
 - persistent fold:
     all portlets have an icon on the top (triangle) wich provide the persistent fold function
-- edit portlet 
+- edit portlet
     all portlets have an icon on the top (pensil) wich links to the respective Edit Page.
 - close/remove portlet
     all portlets have an icon on the top (cross) wich remove the respective portlet from the dashboard
@@ -21,11 +21,12 @@ Install
 
 - Add ``ftw.ftw.dashboard.dragndrop`` to your buildout configuration
 
-:: 
+::
+
   [instance]
-  eggs = 
+  eggs =
     ftw.blog
-    
+
 - Run buildout
 
 - Install ``ftw.blog`` in portal_setup
@@ -36,15 +37,15 @@ Install
 Properties:
 -----------
 
-dashboardEditable: 
-True: The dashboard will always show up the edit-mode, all functionalities are available 
-False: The standard view (/dashboard) will only show the dragndrop and the fold functionality. Use manage-dashbord view to customize your dashboard.  
+dashboardEditable:
+True: The dashboard will always show up the edit-mode, all functionalities are available
+False: The standard view (/dashboard) will only show the dragndrop and the fold functionality. Use manage-dashbord view to customize your dashboard.
 
-columnNumber: 
-Number of Dashboard-Columns. 
+columnNumber:
+Number of Dashboard-Columns.
 (if more than 4 columns, you have to add new PortletMangers)
 
-addablePortlets: 
+addablePortlets:
 Defines the addable portlets.
 You can use "portlet.Calendar" or "portlet.Calendar:Portlet Calendar", after colon is a user friendly name - added in release 1.1
 
