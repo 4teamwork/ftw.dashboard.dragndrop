@@ -5,6 +5,9 @@ Changelog
 1.1.5 (unreleased)
 ------------------
 
+- Fix "Classic" portlet ID in default addable property.
+  [jone]
+
 - Translate portlet titles in add-dropdown in "plone" domain like in plone default dashboard.
   [jone]
 
