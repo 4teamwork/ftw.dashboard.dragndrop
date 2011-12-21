@@ -1,4 +1,6 @@
 from plone.app.layout.dashboard.dashboard import DashboardView
+from plone.portlets.interfaces import IPortletType
+from zope.component import queryUtility
 
 
 class FTWDashBoard(DashboardView):
@@ -28,18 +30,34 @@ class FTWDashBoard(DashboardView):
     def registered_portlelts(self):
         """ Returns the registered portlets in a list with 2 item tuple
         [('id', 'user friendly'), ( 'id2', 'Another Portlet')] """
+
         ret = []
         if self.props:
             portlets = self.props.addable_portlets
             for portlet in portlets:
-                if ':' in portlet:
-                    parts = portlet.split(':')
-                    id_ = parts[0]
-                    title = ''.join(parts[1:])
-                else:
-                    id_ = title = portlet
+                id_, title = self._get_portlet_id_and_title(portlet)
                 ret.append(dict(id=id_, title=title))
         return ret
+
+    def _get_portlet_id_and_title(self, name):
+        """Returns the title of the portlet by the name configured in
+        the addable_portlets property. The name may have the form
+        "[id]:[title]", in this case the title defined in
+        the porperty is used, otherwise the default portlet property
+        is retrieved.
+        Returns the portlet id and the title to use.
+        """
+
+        if ':' in name:
+            return name.split(':', 1)
+
+        portlet = queryUtility(IPortletType, name=name)
+
+        if portlet:
+            return name, portlet.title
+
+        else:
+            return name, name
 
     @property
     def showleftcolumn(self):

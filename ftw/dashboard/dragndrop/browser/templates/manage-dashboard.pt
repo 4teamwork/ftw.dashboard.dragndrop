@@ -93,7 +93,8 @@
                                         <option value=""><tal:block i18n:translate="">choose Portlet</tal:block></option>
                                         <tal:portlets tal:repeat="p view/registered_portlelts">
                                             <option tal:attributes="value string:/++dashboard++plone.dashboard1+${userid}/+/${p/id}"
-                                                    tal:content="p/title" i18n:translate=""> portlet
+                                                    tal:content="p/title" i18n:translate=""
+                                                    i18n:domain="plone"> portlet
                                             </option>
                                         </tal:portlets>
                                     </select>

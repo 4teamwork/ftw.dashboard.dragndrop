@@ -5,6 +5,9 @@ Changelog
 1.1.5 (unreleased)
 ------------------
 
+- Translate portlet titles in add-dropdown in "plone" domain like in plone default dashboard.
+  [jone]
+
 
 1.1.4 (2010-10-26)
 ------------------
@@ -21,7 +24,7 @@ Changelog
 - Added z3c.autoinclude entry point to mark this as a Plone plugin
   [Thomas Buchberger]
 
-- updated jquery.ui version for correct plone4 support 
+- updated jquery.ui version for correct plone4 support
   [phgross]
 
 - fixed some templates and css styles, so that it work's fine with plone4
@@ -38,8 +41,8 @@ Changelog
 
 - Added some additional css classes
   [jbaumann]
-  
-- Removed unused configlet icons 
+
+- Removed unused configlet icons
   [fsprenger]
 
 
@@ -49,9 +52,9 @@ Changelog
 - added the new user friendly name function, also for the manage-dashboard page
   [phgross]
 
-- In selection to add new portlet in dashboard, can have a user friendly 
-  name, in stead of portlet.Calendar, you can use Calendar, just in 
-  addable_portlets use: portlet.Calendar:Calendar 
+- In selection to add new portlet in dashboard, can have a user friendly
+  name, in stead of portlet.Calendar, you can use Calendar, just in
+  addable_portlets use: portlet.Calendar:Calendar
   [lucmult]
 
 
