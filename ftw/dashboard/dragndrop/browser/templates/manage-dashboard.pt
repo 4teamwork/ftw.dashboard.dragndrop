@@ -55,33 +55,33 @@
         <div class="documentContent dashboardContent manageDashboard" id="content">
 
             <a name="documentContent"></a>
-                    
+
             <div metal:use-macro="context/global_statusmessage/macros/portal_message">
                 Portal status message
             </div>
 
-			
-			
+
+
             <div id="dashboard-actions"
                  tal:define="controlPanel python:modules['Products.CMFCore.utils'].getToolByName(here, 'portal_controlpanel');
                              groups python:controlPanel.getGroups('member');
                              getIconFor nocall:context/plone_utils/getIconFor" >
             </div>
-            
+
             <h1 class="documentFirstHeading" i18n:translate="heading_dashboard">
                 <span tal:replace="name" i18n:name="user_name" />'s dashboard
             </h1>
-            
+
             <dl tal:condition="view/empty"
                 class="portalMessage info visualClear" id="dashboard-info-message">
                 <dt i18n:translate="">Info</dt>
                 <dd i18n:translate="info_empty_dashboard">
-                    Your dashboard is currently empty. Click the 
-                    <em>edit</em> tab to assign some personal 
+                    Your dashboard is currently empty. Click the
+                    <em>edit</em> tab to assign some personal
                     portlets.
                 </dd>
             </dl>
-                
+
             <div id="dashboard">
 				<div id="dashboard-add-portlet" tal:define="referer python:context.absolute_url()+'/'+ view.__name__;
 								userid python:member.getId();">
