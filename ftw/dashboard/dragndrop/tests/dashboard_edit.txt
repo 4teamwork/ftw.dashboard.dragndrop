@@ -71,3 +71,11 @@ Test human readable name for addable portlets
     >>> 'PortletTitle' in browser.contents
     True
 
+Test portlets without translation or portlet.title
+    >>> props._setPropValue('addable_portlets', ['demo.portlet'])
+    >>> transaction.commit()
+    >>> browser.open(portal_url + '/dashboard')
+    >>> 'demo.portlet' in browser.contents
+    True
+
+
