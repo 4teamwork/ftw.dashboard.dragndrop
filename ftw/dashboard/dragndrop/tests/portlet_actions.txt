@@ -93,7 +93,7 @@ Check portlet has attr isFolded ( and it should be True)
     
     
 Test reordering of portlets
-For this case, add one more portlet to the same as the rss portlet is
+For this case, add one more portlet to the same column as the rss portlet is
 
     >>> url = '/++dashboard++plone.dashboard1+' + TEST_USER_ID + '/+/portlets.Calendar'
     >>> browser.open(portal_url + url)
@@ -103,7 +103,7 @@ The reorder function looks for "portlets:list"
 btw: info is still out rss portlet (first position)
     >>> portlet1 = 'portlets:list=plone.dashboard1:' + portlethash
 
-Second portet
+Second portlet
     >>> info2 = dict(manager = 'plone.dashboard1',
     ...    category = USER_CATEGORY,
     ...    key = TEST_USER_ID,
@@ -126,4 +126,21 @@ Currently portlet1 is rendered befor portlet2
 Now the rss portlet should be rendered after the calendar portelt
 
     >>> browser.contents.find('portletRss') > browser.contents.find('portletCalendar')
+    True
+
+Move calendar portlet to column 2
+Use precalculated hashes
+
+    >>> params = "portlets:list=plone.dashboard1:706c6f6e652e64617368626f617264310a757365720a7a6f70656d61737465720a7273732d68656973652d6f6e6c696e652d6e657773&portlets:list=plone.dashboard1:706c6f6e652e64617368626f617264310a757365720a7a6f70656d61737465720a7273732d687474702d7777772d68656973652d6465&portlets:list=plone.dashboard2:706c6f6e652e64617368626f617264310a757365720a7a6f70656d61737465720a63616c656e646172"
+    >>> url = '/ftw.dashboard.dragndrop-update_order?'+params
+    >>> browser.open(portal_url + url)
+    >>> params2 = "portlets:list=plone.dashboard1:706c6f6e652e64617368626f617264310a757365720a7a6f70656d61737465720a7273732d68656973652d6f6e6c696e652d6e657773&portlets:list=plone.dashboard1:706c6f6e652e64617368626f617264310a757365720a7a6f70656d61737465720a7273732d687474702d7777772d68656973652d6465&portlets:list=plone.dashboard2:706c6f6e652e64617368626f617264320a757365720a7a6f70656d61737465720a63616c656e646172"
+    >>> url2 = '/ftw.dashboard.dragndrop-update_order?'+params2
+    >>> browser.open(portal_url + url2)
+    >>> browser.open(portal_url + "/dashboard")
+
+Check if the new portlet hash is available
+
+    >>> newhash = '706c6f6e652e64617368626f617264320a757365720a746573745f757365725f315f0a63616c656e646172'
+    >>> newhash in browser.contents
     True

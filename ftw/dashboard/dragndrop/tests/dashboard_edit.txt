@@ -22,7 +22,7 @@ Login
     >>> browser.getControl(name='submit').click()
 
 
-Open dashboard
+Open dashboard 
     >>> browser.open(portal_url + '/dashboard')
 
 Content views should be available to switch between edit- and view-mode
@@ -30,7 +30,7 @@ Content views should be available to switch between edit- and view-mode
     True
 
 Set dashboardEditable, so it should be possible to manage your portlets
-directly.
+directly.    
     >>> props._setPropValue('dashboardEditable', True)
     >>> transaction.commit()
     >>> browser.open(portal_url + '/dashboard')
@@ -39,7 +39,7 @@ No content-view, because it is no necessary to switch
     >>> 'content-views' not in browser.contents
     True
 
-There should be three portlets available.
+There should be three portlets available. 
 
     >>> 'portlets.rss' in browser.contents
     True
@@ -55,7 +55,7 @@ Add a Calendar portlet
     >>> 'portletCalendar' in browser.contents
     True
 
-There should be the same in
+There should be the same in 
 
     >>> browser.open(portal_url + '/manage-dashboard')
     >>> 'portletCalendar' in browser.contents
