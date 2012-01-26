@@ -1,5 +1,5 @@
 jq(function() {
-    
+
     var print_images = function(obj){
         if(jq('#regio-content').hasClass('documentEditable')){
             //Hash auslessen
@@ -14,7 +14,7 @@ jq(function() {
             else{
                  jq("<img src='"+portal_url+"/++resource++icon_close_box.gif' align='right' class='fold' alt='fold'>").insertAfter(jq('.portletTopLeft',obj));
             }
-            
+
             jq('<img src="'+portal_url+'/++resource++icon_remove_box.gif" align="right" class="close" alt="remove">').insertAfter(jq('.portletTopLeft', obj));
         }
         else{
@@ -27,7 +27,7 @@ jq(function() {
             }
         }
     }
-    
+
     var update_dashboard_order = function(event, ui) {
         // the update event handler is called twice (once with ui.sender
         // and once without). ui.sender needs to be Null, otherwise
@@ -56,7 +56,7 @@ jq(function() {
                     var replace = data[i].split(':');
                     var oldHash = replace[0];
                     var newHash = replace[1];
-                    
+
                     //kss attribute portlethash must be fixed
                     if(jq('#portletwrapper-'+ oldHash).hasClass('kssattr-portlethash-'+oldHash)){
                         var classes = jq('#portletwrapper-' + oldHash)[0].getAttribute('class');
@@ -65,9 +65,9 @@ jq(function() {
                             jq('#portletwrapper-'+ oldHash)[0].setAttribute('class', classes);
                         }
                     }
-                    
+
                     jq('#portletwrapper-' + oldHash)[0].setAttribute('id', 'portletwrapper-' + newHash);
-                    
+
                     // edit link must be fixed: the column id may be wrong!
                     // test if there is a edit link
                     var editLinks = jq('#portletwrapper-' + newHash + ' .edit');
@@ -105,13 +105,13 @@ jq(function() {
         tolerance :     'pointer',
         update :        update_dashboard_order
     });
-    
+
     jq('.column').disableSelection();
 
     /* TOGGLE PORTLET CONTENT */
     jq('.portletHeader .fold').live('click',function() {
         jq(this).parents('.portletwrapper:first').toggleClass('folded');
-        
+
         if (jq(this).parents('.portletwrapper:first').hasClass('folded')) {
             //Change icon
             this.setAttribute('src', portal_url+ '/++resource++icon_open_box.gif');
@@ -120,20 +120,20 @@ jq(function() {
             //Change icon
             this.setAttribute('src', portal_url+ '/++resource++icon_close_box.gif');
         }
-        
+
         var wrapper = jq(this).parents('.portletwrapper:first');
         var hash = wrapper[0].id.substr('portletwrapper-'.length);
-        
+
         var folded = 0;
         if (jq(this).parents('.portletwrapper:first').hasClass('folded')) {
             folded = 1;
-        }        
+        }
         jq.ajax({
             type :      'POST',
             url :       './ftw.dashboard.dragndrop-foldportlet',
             data :      'hash='.concat(hash)+'&folded='.concat(folded)
         });
-                
+
         //special workarround for fav portlet
         if (jq(this).parents('.portletwrapper:first').find('.portletItem').length==0){
             jq(this).parents('.portletwrapper:first').find('.portletItemEmpty').toggle().end();
@@ -144,7 +144,7 @@ jq(function() {
     jq('.portletHeader .close').live('click',function() {
         var wrapper = jq(this).parents('.portletwrapper:first');
         var hash = wrapper[0].id.substr('portletwrapper-'.length);
-        // request  
+        // request
         jq.ajax({
             type :      'POST',
             url :       './ftw.dashboard.dragndrop-removeportlet',
@@ -153,8 +153,8 @@ jq(function() {
         // destroy it
         wrapper.hide().remove();
     });
-    
-    
+
+
     /*REGISTER EVENT FOR PORTLETRELOAD*/
     jq('.portletwrapper .portletHeader a').live('click', function(){
         jq(this).append(jq('<div class="crap"></div>'));
@@ -171,8 +171,8 @@ jq(function() {
         };
         reset_icon();
     });
-    
-    /* REMOVE Favourite*/ 
+
+    /* REMOVE Favourite*/
     jq('.portletFavourites .close.favRemove').live('click',function(e){
         var uid = jq(this).attr('id');
         jq.post('./ftw_dashboard_dragndrop_remove_favorite',{ uid : uid },function(data){
@@ -184,18 +184,18 @@ jq(function() {
                 jq('[id='+uid+']').closest('.portletItem').each(function(i,v){
                     jq(v).remove();
                 });
-                
+
                 if (jq('.portletFavourites .close.favRemove').length==0){
                     jq('span.noFavs').closest('.portletItemEmpty').show()
                 }
             }
-            
+
         });
     });
-    
+
     jq('.dashboard-column .portletHeader').each(function(){
         print_images(jq(this));
     });
-    
-    
+
+
 });
