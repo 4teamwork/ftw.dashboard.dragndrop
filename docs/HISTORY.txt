@@ -5,6 +5,12 @@ Changelog
 1.1.5 (unreleased)
 ------------------
 
+- Added upgrade step from 1.1.4 to 1.1.5
+  [mathias.leimgruber]
+
+- Implemented show/hide right/left column on dashboard.
+  [mathias.leimgruber]
+
 - Fix "Classic" portlet ID in default addable property.
   [jone]
 

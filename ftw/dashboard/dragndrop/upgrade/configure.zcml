@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="ftw.dashboard.dragndrop">
+
+    <genericsetup:registerProfile
+        name="114-to-115"
+        title="Upgrade profile for ftw.dashboard.dragndrop v1.1.4 to v1.1.5"
+        description="This profile contains configuration changes that are applied during the upgrade from 1.1.4 to 1.1.5"
+        directory="profiles/to_115"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <genericsetup:upgradeSteps
+        source="1"
+        destination="2"
+        profile="ftw.dashboard.dragndrop:default">
+
+        <genericsetup:upgradeStep
+            title="General upgrade steps"
+            handler="ftw.dashboard.dragndrop.upgrade.upgrades.one114_one15"
+            />
+
+    </genericsetup:upgradeSteps>
+
+
+
+</configure>
