@@ -1,7 +1,7 @@
 jq(function() {
 
     var print_images = function(obj){
-        if(jq('#regio-content').hasClass('documentEditable')){
+        if(jq('.documentEditable')){
             //Hash auslessen
             var hash = obj.parents('.portletwrapper:first')[0].id.substr('portletwrapper-'.length);
             if (obj.parents('.portletwrapper:first').hasClass('editable')) {
