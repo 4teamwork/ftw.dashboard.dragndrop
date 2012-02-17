@@ -5,6 +5,9 @@ Changelog
 1.1.5 (unreleased)
 ------------------
 
+- Added some French Translations
+  [ttschanz]
+
 - Added upgrade step from 1.1.4 to 1.1.5
   [mathias.leimgruber]
 
