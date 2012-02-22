@@ -5,6 +5,9 @@ Changelog
 1.1.5 (unreleased)
 ------------------
 
+- Added move button to portlet headers.
+  [Julian Infanger]
+
 - Added some French Translations
   [ttschanz]
 

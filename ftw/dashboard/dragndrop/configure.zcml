@@ -40,6 +40,11 @@
         />
 
    <browser:resource
+       name="icon_move_box.gif"
+       file="icons/icon_move_box.png"
+       />
+
+   <browser:resource
         name="icon_edit_box.gif"
         file="icons/icon_edit_box.gif"
         />

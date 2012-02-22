@@ -4,26 +4,27 @@ jq(function() {
         if(jq('.documentEditable')){
             //Hash auslessen
             var hash = obj.parents('.portletwrapper:first')[0].id.substr('portletwrapper-'.length);
+            jq('<div class="dashboardButton buttonRemove"><img src="'+portal_url+'/++resource++icon_remove_box.gif" align="right" class="close" alt="remove"></img>').insertAfter(jq('.portletTopLeft', obj));
             if (obj.parents('.portletwrapper:first').hasClass('editable')) {
-                jq('<a class="edit" href="dashboardEditLinkView?hash='+hash+'"> <img src=" '+portal_url+'/++resource++icon_edit_box.gif" align="right" class="edit" alt="remove"> </a> ').insertAfter(jq('.portletTopLeft', obj));
-            }
-            //Fold Functionality
-            if (obj.parents('.portletwrapper:first').hasClass('folded')) {
-                 jq("<img src='"+portal_url+"/++resource++icon_open_box.gif' align='right' class='fold' alt='fold'>").insertAfter(jq('.portletTopLeft',obj));
-            }
-            else{
-                 jq("<img src='"+portal_url+"/++resource++icon_close_box.gif' align='right' class='fold' alt='fold'>").insertAfter(jq('.portletTopLeft',obj));
+                jq('<div class="dashboardButton buttonEdit"><a class="edit" href="dashboardEditLinkView?hash='+hash+'"> <img src=" '+portal_url+'/++resource++icon_edit_box.gif" align="right" class="edit" alt="remove"> </a></div>').insertAfter(jq('.portletTopLeft', obj));
             }
 
-            jq('<img src="'+portal_url+'/++resource++icon_remove_box.gif" align="right" class="close" alt="remove">').insertAfter(jq('.portletTopLeft', obj));
+            jq('<div class="dashboardButton buttonMove"><img src="'+portal_url+'/++resource++icon_move_box.gif" align="right" class="move" alt="move"/></div>').insertAfter(jq('.portletTopLeft', obj));
+            //Fold Functionality
+            if (obj.parents('.portletwrapper:first').hasClass('folded')) {
+                 jq("<div class='dashboardButton buttonOpen'><img src='"+portal_url+"/++resource++icon_open_box.gif' align='right' class='fold' alt='fold'/></div>").insertAfter(jq('.portletTopLeft',obj));
+            }
+            else{
+                 jq("<div class='dashboardButton buttonClose'><img src='"+portal_url+"/++resource++icon_close_box.gif' align='right' class='fold' alt='fold'/></div>").insertAfter(jq('.portletTopLeft',obj));
+            }
         }
         else{
             //Only Fold Functionality
             if (jq(obj).parents('.portletwrapper:first').hasClass('folded')) {
-                 jq("<img src='"+portal_url+"/++resource++icon_open_box.gif' align='right' class='fold' alt='fold'>").insertAfter(jq('.portletTopLeft',obj));
+                 jq("<div class='dashboardButton buttonOpen'><img src='"+portal_url+"/++resource++icon_open_box.gif' align='right' class='fold' alt='fold'/></div>").insertAfter(jq('.portletTopLeft',obj));
             }
             else{
-                 jq("<img src='"+portal_url+"/++resource++icon_close_box.gif' align='right' class='fold' alt='fold'>").insertAfter(jq('.portletTopLeft',obj));
+                 jq("<div class='dashboardButton buttonClose'><img src='"+portal_url+"/++resource++icon_close_box.gif' align='right' class='fold' alt='fold'/></div>").insertAfter(jq('.portletTopLeft',obj));
             }
         }
     }
@@ -115,10 +116,12 @@ jq(function() {
         if (jq(this).parents('.portletwrapper:first').hasClass('folded')) {
             //Change icon
             this.setAttribute('src', portal_url+ '/++resource++icon_open_box.gif');
+            jq(this).parents('.dashboardButton:first').removeClass('buttonClose').addClass('buttonOpen');
         }
         else{
             //Change icon
             this.setAttribute('src', portal_url+ '/++resource++icon_close_box.gif');
+            jq(this).parents('.dashboardButton:first').removeClass('buttonOpen').addClass('buttonClose');
         }
 
         var wrapper = jq(this).parents('.portletwrapper:first');
