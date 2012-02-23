@@ -25,7 +25,7 @@ msgstr "Ajouter"
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:94
 #: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:93
 msgid "choose Portlet"
-msgstr "Choisir Portlet"
+msgstr "Choisir outil"
 
 #. Default: "${user_name}'s dashboard"
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:73
@@ -37,7 +37,7 @@ msgstr "Portail"
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:79
 #: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:78
 msgid "info_empty_dashboard"
-msgstr "Votre portail est actuellement vide. Cliquez sur l'onglet <em>edit</em> pour définir des portlets personnels "
+msgstr "Votre portail est actuellement vide. Cliquez sur l'onglet <em>edit</em> pour définir des outils personnels "
 
 #. Default: "Dashboard"
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:40
@@ -50,4 +50,5 @@ msgstr "Portail"
 #: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:44
 msgid "label_edit"
 msgstr "Editer"
+
 
