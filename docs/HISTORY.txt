@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.1.5 (unreleased)
+1.1.5 (2012-03-05)
 ------------------
 
 - Added move button to portlet headers.
