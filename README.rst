@@ -2,52 +2,51 @@ Overview
 ========
 
 
-The ftw.dashboard.dragndrop - packet add persistent dragndrop functionality to standard plone dashboard.
-Additional it add icons for fold, edit and close/remove functionality
+`ftw.dashboard.dragndrop` adds persistent dragndrop functionality to the standard plone dashboard.
 
 Features:
-- persistent dragndrop
-    all portlets can moved with dragndrop functionality from column to column and also in the column
-- persistent fold:
-    all portlets have an icon on the top (triangle) wich provide the persistent fold function
-- edit portlet
-    all portlets have an icon on the top (pensil) wich links to the respective Edit Page.
-- close/remove portlet
-    all portlets have an icon on the top (cross) wich remove the respective portlet from the dashboard
+
+- **Drag'n'drop**:
+  All dashboard portlets can be moved with drag'n'drop from column to column and reordered in the column.
+- **Folding**:
+  Dashboard porlets are foldable.
+- **Edit portlet icon**:
+  Dashboard portlets have an icon on the top (pencil) for editing the portlet.
+- **close/remove portlet**:
+  Dashboard portlets have an icon on the top (cross) for removing the portlet from the dashboard.
 
 
 Install
-======
+=======
 
-- Add ``ftw.ftw.dashboard.dragndrop`` to your buildout configuration
+- Add ``ftw.dashboard.dragndrop`` to your buildout configuration:
 
 ::
 
   [instance]
   eggs =
-    ftw.blog
+    ftw.dashboard.dragndrop
 
-- Run buildout
+- Run buildout.
 
-- Install ``ftw.blog`` in portal_setup
+- Install ``ftw.dashboard.dragndrop`` in portal_setup.
 
-- Customize the properties (addablePortlets)
+- Configure the dashboard in the ``portal_properties`` tool (addablePortlets).
 
 
 Properties:
 -----------
 
-dashboardEditable:
-True: The dashboard will always show up the edit-mode, all functionalities are available
-False: The standard view (/dashboard) will only show the dragndrop and the fold functionality. Use manage-dashbord view to customize your dashboard.
+- **dashboardEditable**:
+  True: The dashboard will always be editable, all functionalities are available
+  False: The standard view (``@@dashboard``) will only provide the dragndrop and the fold functionality. Use the ``@@manage-dashbord`` view to customize your dashboard.
 
-columnNumber:
-Number of Dashboard-Columns.
-(if more than 4 columns, you have to add new PortletMangers)
+- **columnNumber**:
+  Number of dashboard columns. There are only 4 portlet managers provided by plone. If you need more you need to register additional dashboard portlet managers.
 
-addablePortlets:
-Defines the addable portlets.
-You can use "portlet.Calendar" or "portlet.Calendar:Portlet Calendar", after colon is a user friendly name - added in release 1.1
+- **addablePortlets**:
+  Defines the addable portlets.
+  You can use "portlet.Calendar" or "portlet.Calendar:Portlet Calendar". With the latter form you can change the title of the portlet.
 
 
 Links
