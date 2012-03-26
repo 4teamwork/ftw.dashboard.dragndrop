@@ -100,6 +100,8 @@ jq(function() {
     jq('.dashboard-column').sortable({
         connectWith :   jq('.dashboard-column'),
         cursor :        'move',
+        start :         function(){jq('body').addClass('dragPortlet');},
+        stop :          function(){jq('body').removeClass('dragPortlet');},
         distance :      10,
         handle :        '.portletHeader',
         revert :        true,
