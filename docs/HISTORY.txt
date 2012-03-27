@@ -11,6 +11,9 @@ Changelog
 1.1.6 (2012-03-26)
 ------------------
 
+- Wrap diff around portlet actions.
+  [Julian Infanger]
+
 - Add a class to body while you drag a portlet.
   [Julian Infanger]
 

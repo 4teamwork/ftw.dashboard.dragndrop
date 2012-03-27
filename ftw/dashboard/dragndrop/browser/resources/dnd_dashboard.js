@@ -4,29 +4,31 @@ jq(function() {
         if(jq('.documentEditable')){
             //Hash auslessen
             var hash = obj.parents('.portletwrapper:first')[0].id.substr('portletwrapper-'.length);
-            jq('<div class="dashboardButton buttonRemove"><img src="'+portal_url+'/++resource++icon_remove_box.gif" align="right" class="close" alt="remove"></img>').insertAfter(jq('.portletTopLeft', obj));
-            if (obj.parents('.portletwrapper:first').hasClass('editable')) {
-                jq('<div class="dashboardButton buttonEdit"><a class="edit" href="dashboardEditLinkView?hash='+hash+'"> <img src=" '+portal_url+'/++resource++icon_edit_box.gif" align="right" class="edit" alt="remove"> </a></div>').insertAfter(jq('.portletTopLeft', obj));
-            }
-
-            jq('<div class="dashboardButton buttonMove"><img src="'+portal_url+'/++resource++icon_move_box.gif" align="right" class="move" alt="move"/></div>').insertAfter(jq('.portletTopLeft', obj));
+            var actions = '<div class="portletActionsWrapper">';
             //Fold Functionality
             if (obj.parents('.portletwrapper:first').hasClass('folded')) {
-                 jq("<div class='dashboardButton buttonOpen'><img src='"+portal_url+"/++resource++icon_open_box.gif' align='right' class='fold' alt='fold'/></div>").insertAfter(jq('.portletTopLeft',obj));
+                 actions += "<div class='dashboardButton buttonOpen'><img src='"+portal_url+"/++resource++icon_open_box.gif' align='right' class='fold' alt='fold'/></div>";
             }
             else{
-                 jq("<div class='dashboardButton buttonClose'><img src='"+portal_url+"/++resource++icon_close_box.gif' align='right' class='fold' alt='fold'/></div>").insertAfter(jq('.portletTopLeft',obj));
+                 actions+="<div class='dashboardButton buttonClose'><img src='"+portal_url+"/++resource++icon_close_box.gif' align='right' class='fold' alt='fold'/></div>";
             }
+            actions += '<div class="dashboardButton buttonMove"><img src="'+portal_url+'/++resource++icon_move_box.gif" align="right" class="move" alt="move"/></div>';
+            if (obj.parents('.portletwrapper:first').hasClass('editable')) {
+                actions += '<div class="dashboardButton buttonEdit"><a class="edit" href="dashboardEditLinkView?hash='+hash+'"> <img src=" '+portal_url+'/++resource++icon_edit_box.gif" align="right" class="edit" alt="remove"> </a></div>';
+            }
+            actions += '<div class="dashboardButton buttonRemove"><img src="'+portal_url+'/++resource++icon_remove_box.gif" align="right" class="close" alt="remove"></img>';
         }
         else{
             //Only Fold Functionality
             if (jq(obj).parents('.portletwrapper:first').hasClass('folded')) {
-                 jq("<div class='dashboardButton buttonOpen'><img src='"+portal_url+"/++resource++icon_open_box.gif' align='right' class='fold' alt='fold'/></div>").insertAfter(jq('.portletTopLeft',obj));
+                 actions += "<div class='dashboardButton buttonOpen'><img src='"+portal_url+"/++resource++icon_open_box.gif' align='right' class='fold' alt='fold'/></div>";
             }
             else{
-                 jq("<div class='dashboardButton buttonClose'><img src='"+portal_url+"/++resource++icon_close_box.gif' align='right' class='fold' alt='fold'/></div>").insertAfter(jq('.portletTopLeft',obj));
+                 actions += "<div class='dashboardButton buttonClose'><img src='"+portal_url+"/++resource++icon_close_box.gif' align='right' class='fold' alt='fold'/></div>";
             }
         }
+        actions += '</div>';
+        jq(actions).insertAfter(jq('.portletTopLeft',obj));
     }
 
     var update_dashboard_order = function(event, ui) {
