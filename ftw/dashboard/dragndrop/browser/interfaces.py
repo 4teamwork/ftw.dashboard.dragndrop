@@ -1,3 +1,4 @@
+from plone.theme.interfaces import IDefaultPloneLayer
 from zope.interface import Interface
 
 
@@ -11,3 +12,7 @@ class IDashboardViewable(Interface):
 
 class IDashboardEditViewable(IDashboardViewable):
     """ marker interface"""
+
+
+class IDashboardLayer(IDefaultPloneLayer):
+    """Browserlayer"""

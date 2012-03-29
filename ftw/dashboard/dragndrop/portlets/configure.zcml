@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="ftw.dashboard.dragndrop">
+
+    <include package="plone.app.portlets" />
+
+    <plone:portletRenderer
+        portlet="plone.app.portlets.portlets.rss.IRSSPortlet"
+        layer="ftw.dashboard.dragndrop.browser.interfaces.IDashboardLayer"
+        template="rss.pt"
+        />
+
+</configure>

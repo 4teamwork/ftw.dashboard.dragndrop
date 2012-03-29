@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-12-12 15:00+0000\n"
+"POT-Creation-Date: 2012-03-29 09:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,9 +18,14 @@ msgid "Info"
 msgstr "Information"
 
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:101
-#: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:100
+#: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:101
 msgid "add"
 msgstr "Hinzufügen"
+
+#. Default: "More…"
+#: ./ftw/dashboard/dragndrop/portlets/rss.pt:44
+msgid "box_morelink"
+msgstr "Mehr…"
 
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:94
 #: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:93
@@ -50,5 +55,10 @@ msgstr ""
 #: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:44
 msgid "label_edit"
 msgstr ""
+
+#. Default: "You entered an invalid RSS-Feed or the Feed itseld cannot be parsed"
+#: ./ftw/dashboard/dragndrop/portlets/rss.pt:40
+msgid "text_invalid_rss_feed_url"
+msgstr "Sie haben einen ungültigen RSS-Feed eingegeben, oder der Feed kann nicht geladen werden."
 
 

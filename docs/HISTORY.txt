@@ -2,10 +2,12 @@ Changelog
 =========
 
 
-1.1.8 (unreleased)
+1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Override plone default rss portletrenderer. Show up a message
+  if feed is no parsable or the feed url itself cannot be found.
+  [mathias.leimgruber]
 
 
 1.1.7 (2012-03-27)
