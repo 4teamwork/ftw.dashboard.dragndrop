@@ -36,7 +36,7 @@
         </dd>
     </tal:rss>
     <tal:notrss>
-        <dd class="portletItem brokerRss">
+        <dd class="portletItem brokenRss">
             <span i18n:translate="text_invalid_rss_feed_url">You entered an invalid RSS-Feed or the Feed itseld cannot be parsed</span>
         </dd>
     </tal:notrss>
