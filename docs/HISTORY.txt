@@ -3,7 +3,7 @@ Changelog
 
 
 1.2 (unreleased)
-------------------
+----------------
 
 - Override plone default rss portletrenderer. Show up a message
   if feed is no parsable or the feed url itself cannot be found.

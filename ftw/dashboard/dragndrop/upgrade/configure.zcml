@@ -12,6 +12,18 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+
+    <genericsetup:registerProfile
+        name="117-to-12"
+        title="Upgrade profile for ftw.dashboard.dragndrop v1.1.7 to v1.2"
+        description="This profile contains configuration changes that are applied during the upgrade from 1.1.7 to 1.2"
+        directory="profiles/to_12"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+
+
     <genericsetup:upgradeSteps
         source="1"
         destination="2"
@@ -20,6 +32,19 @@
         <genericsetup:upgradeStep
             title="General upgrade steps"
             handler="ftw.dashboard.dragndrop.upgrade.upgrades.one114_one15"
+            />
+
+    </genericsetup:upgradeSteps>
+
+
+    <genericsetup:upgradeSteps
+        source="2"
+        destination="3"
+        profile="ftw.dashboard.dragndrop:default">
+
+        <genericsetup:upgradeStep
+            title="Adds browserlayer for new rss portletrenderer"
+            handler="ftw.dashboard.dragndrop.upgrade.upgrades.one117_one12"
             />
 
     </genericsetup:upgradeSteps>
