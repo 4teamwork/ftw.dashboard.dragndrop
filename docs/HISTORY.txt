@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2 (unreleased)
+1.2 (2012-04-02)
 ----------------
 
 - Override plone default rss portletrenderer. Show up a message
