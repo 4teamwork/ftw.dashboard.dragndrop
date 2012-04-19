@@ -1,3 +1,4 @@
+from Products.CMFCore.utils import getToolByName
 from plone.app.layout.dashboard.dashboard import DashboardView
 from plone.portlets.interfaces import IPortletType
 from zope.component import queryUtility
@@ -23,9 +24,26 @@ class FTWDashBoard(DashboardView):
         else:
             request.set('disable_plone.rightcolumn', False)
 
-
     def dashboard_props(self):
         return getattr(self.context.portal_properties, 'ftw.dashboard', None)
+
+    def add_portlet_options(self):
+        mtool = getToolByName(self.context, 'portal_membership')
+        userid = mtool.getAuthenticatedMember().getId()
+        manager_base = '/++dashboard++plone.dashboard1+%s/' % userid
+
+        options = []
+
+        for info in self.registered_portlelts():
+            if info['id'].startswith('@@'):
+                value = '%s/%s' % (manager_base, info['id'])
+            else:
+                value = '%s+/%s' % (manager_base, info['id'])
+
+            options.append({
+                    'value': value,
+                    'label': info['title']})
+        return options
 
     def registered_portlelts(self):
         """ Returns the registered portlets in a list with 2 item tuple

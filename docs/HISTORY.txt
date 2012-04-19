@@ -5,7 +5,8 @@ Changelog
 1.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Support for portlet adder views, starting with '@@'.
+  [jone]
 
 
 1.2 (2012-04-02)
