@@ -5,6 +5,9 @@ Changelog
 1.2.1 (unreleased)
 ------------------
 
+- Dont show errormessage if feed is available.
+  [Julian Infanger]
+
 - Support for portlet adder views, starting with '@@'.
   [jone]
 
@@ -13,7 +16,7 @@ Changelog
 ----------------
 
 - Override plone default rss portletrenderer. Show up a message
-  if feed is no parsable or the feed url itself cannot be found.
+  if feed is not parsable or the feed url itself cannot be found.
   [mathias.leimgruber]
 
 
