@@ -1,7 +1,7 @@
 jq(function() {
 
     var print_images = function(obj){
-        if(jq('.documentEditable')){
+        if(jq('.documentEditable').length !== 0){
             //Hash auslessen
             var hash = obj.parents('.portletwrapper:first')[0].id.substr('portletwrapper-'.length);
             var actions = '<div class="portletActionsWrapper">';
