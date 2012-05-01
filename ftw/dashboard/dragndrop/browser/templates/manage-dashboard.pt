@@ -83,24 +83,6 @@
                         </dl>
 
                         <div id="dashboard">
-                            <div id="dashboard-add-portlet" tal:define="referer python:context.absolute_url()+'/'+ view.__name__;
-                                                                        userid python:member.getId();">
-                                <form tal:attributes="action python:context.portal_url()">
-                                    <textarea style="display:none" tal:content="referer" name="referer"></textarea>
-                                    <select name=":action"
-                                            tal:define="dashboard_props python: getattr(context.portal_properties,'ftw.dashboard', None);"
-                                            tal:condition="dashboard_props">
-                                        <option value=""><tal:block i18n:translate="">choose Portlet</tal:block></option>
-                                        <tal:portlets tal:repeat="p view/registered_portlelts">
-                                            <option tal:attributes="value string:/++dashboard++plone.dashboard1+${userid}/+/${p/id}"
-                                                    tal:content="p/title" i18n:translate=""
-                                                    i18n:domain="plone"> portlet
-                                            </option>
-                                        </tal:portlets>
-                                    </select>
-                                    <input type="submit" class="submit" value="add" i18n:attributes="value" />
-                                </form>
-                            </div>
                             <div id="dashboard-add-portlet" tal:define="referer python:context.absolute_url()+'/'+ view.__name__;">
                                 <form tal:attributes="action python:context.portal_url()">
                                     <textarea style="display:none" tal:content="referer" name="referer"></textarea>
