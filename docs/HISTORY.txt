@@ -5,6 +5,9 @@ Changelog
 1.3.2 (unreleased)
 ------------------
 
+- Update test buildout configuration.
+  [mathias.leimgruber]
+
 - Describe all ftw.dashboard properties.
   [mathias.leimgruber]
 

@@ -62,7 +62,7 @@ Links
 - Package repository: https://github.com/4teamwork/ftw.dashboard.dragndrop
 - Issue tracker: https://github.com/4teamwork/ftw.dashboard.dragndrop/issues
 - Package on pypi: http://pypi.python.org/pypi/ftw.dashboard.dragndrop
-- Continuous integration: https://jenkins.4teamwork.ch/job/ftw.dashboard.dragndrop/
+- Continuous integration: https://jenkins.4teamwork.ch/search/?q=ftw.dashboard.dragndrop
 
 Maintainer
 ==========
