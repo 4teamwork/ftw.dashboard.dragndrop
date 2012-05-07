@@ -47,6 +47,13 @@ Properties:
 - **addablePortlets**:
   Defines the addable portlets.
   You can use "portlet.Calendar" or "portlet.Calendar:Portlet Calendar". With the latter form you can change the title of the portlet.
+  You ca also use "@@my-view:My custom view, which adds a portlet". If the first parts starts with "@@", the given view will be called.
+
+- **showleftcolumn**:
+  Displays the plone.leftcolumn
+
+- **showrightcolumn**:
+  Displays the plone.rightcolumn
 
 
 Links
