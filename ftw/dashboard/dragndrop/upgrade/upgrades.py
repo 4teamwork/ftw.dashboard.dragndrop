@@ -1,4 +1,4 @@
-from ftw.dashboard.dragndrop.utils import load_migration_profile
+from ftw.dashboard.dragndrop.upgrade.utils import load_migration_profile
 
 
 def one114_one15(context):
