@@ -2,7 +2,8 @@ from Products.GenericSetup.interfaces import ISetupTool
 from Products.CMFCore.utils import getToolByName
 
 
-_marker = []
+_marker = object()
+
 
 def load_migration_profile(context, profile, steps=_marker):
     if not ISetupTool.providedBy(context):

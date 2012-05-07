@@ -6,7 +6,6 @@ class DashboardEditLinkView(BrowserView):
 
     def __call__(self):
 
-
         _hash = self.request.get("hash")
         portlet_info = unhashPortletInfo(_hash)
         manager_name = portlet_info['manager']
