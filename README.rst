@@ -35,7 +35,7 @@ Install
 
 
 Properties:
------------
+===========
 
 - **dashboardEditable**:
   True: The dashboard will always be editable, all functionalities are available
@@ -64,7 +64,10 @@ Links
 - Package on pypi: http://pypi.python.org/pypi/ftw.dashboard.dragndrop
 - Continuous integration: https://jenkins.4teamwork.ch/search/?q=ftw.dashboard.dragndrop
 
-Maintainer
-==========
 
-This package is produced and maintained by `4teamwork GmbH <http://www.4teamwork.ch/>`_.
+Copyright
+---------
+
+This package is copyright by `4teamwork <http://www.4teamwork.ch/>`_.
+
+``ftw.dashboard.dragndrop`` is licensed under GNU General Public License, version 2.
