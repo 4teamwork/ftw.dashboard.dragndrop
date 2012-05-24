@@ -1,10 +1,10 @@
 jq(function() {
 
     var print_images = function(obj){
+        var actions = '<div class="portletActionsWrapper">';
         if(jq('.documentEditable').length !== 0){
             //Hash auslessen
             var hash = obj.parents('.portletwrapper:first')[0].id.substr('portletwrapper-'.length);
-            var actions = '<div class="portletActionsWrapper">';
             //Fold Functionality
             if (obj.parents('.portletwrapper:first').hasClass('folded')) {
                  actions += "<div class='dashboardButton buttonOpen'><img src='"+portal_url+"/++resource++icon_open_box.gif' align='right' class='fold' alt='fold'/></div>";
