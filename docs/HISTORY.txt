@@ -5,7 +5,8 @@ Changelog
 1.3.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added attributes cols and rows to textarea (W3C).
+  [Julian Infanger]
 
 
 1.3.3 (2012-05-24)
