@@ -86,7 +86,7 @@
             <div id="dashboard">
 				<div tal:condition="editable" id="dashboard-add-portlet" tal:define="referer python:context.absolute_url()+'/'+ view.__name__;">
 					<form tal:attributes="action python:context.portal_url()">
-                        <textarea style="display:none" tal:content="referer" name="referer"></textarea>
+                        <textarea style="display:none" tal:content="referer" rows="" cols="" name="referer"></textarea>
 						<select name=":action"
 							tal:define="dashboard_props python: getattr(context.portal_properties,'ftw.dashboard', None);"
 							tal:condition="dashboard_props">
