@@ -4,10 +4,14 @@
     float:left;
     width:25%;
 }
+.dashboard-columns-3 .dashboard-column {
+    width:33.3%;
+}
+
 .ui-sortable-placeholder {
     border: 1px dotted black;
     visibility: visible !important;
-    margin-bottom: 1.7em !important; 
+    margin-bottom: 1.7em !important;
 }
 .ui-sortable-placeholder * {
     visibility: hidden;
