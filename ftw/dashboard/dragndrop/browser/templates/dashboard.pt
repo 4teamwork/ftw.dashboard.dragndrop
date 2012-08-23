@@ -34,8 +34,8 @@
         <h5 class="hiddenStructure">Views</h5>
         <tal:editable tal:condition="not:editable">
         <ul
-			id="content-views"
-			class="contentViews">
+            id="content-views"
+            class="contentViews">
           <li class="selected">
             <a href=""
                tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/dashboard"
@@ -51,7 +51,7 @@
         <div class="contentActions">
           &nbsp;
         </div>
-		</tal:editable>
+        </tal:editable>
 
         <div class="documentContent dashboardContent" id="content">
 
@@ -86,32 +86,32 @@
             <div id="dashboard"
                  tal:define="column_amount python:context.portal_properties.get('ftw.dashboard') and context.portal_properties.get('ftw.dashboard').columnNumber or 4;"
                  tal:attributes="class string:dashboard-columns-${column_amount}">
-				<div tal:condition="editable" id="dashboard-add-portlet" tal:define="referer python:context.absolute_url()+'/'+ view.__name__;">
-					<form tal:attributes="action python:context.portal_url()">
+                <div tal:condition="editable" id="dashboard-add-portlet" tal:define="referer python:context.absolute_url()+'/'+ view.__name__;">
+                    <form tal:attributes="action python:context.portal_url()">
                         <textarea style="display:none" tal:content="referer" rows="" cols="" name="referer"></textarea>
-						<select name=":action"
-							tal:define="dashboard_props python: getattr(context.portal_properties,'ftw.dashboard', None);"
-							tal:condition="dashboard_props">
+                        <select name=":action"
+                            tal:define="dashboard_props python: getattr(context.portal_properties,'ftw.dashboard', None);"
+                            tal:condition="dashboard_props">
                                 <option value=""><tal:block i18n:translate="">choose Portlet</tal:block></option>
                                 <tal:portlets tal:repeat="option view/add_portlet_options">
                                     <option tal:attributes="value option/value"
                                             tal:content="option/label" i18n:translate=""> portlet
                                     </option>
                                 </tal:portlets>
-						</select>
-						<input type="submit" class="submit" value="add" i18n:attributes="value">
-					</form>
-				</div>
+                        </select>
+                        <input type="submit" class="submit" value="add" i18n:attributes="value">
+                    </form>
+                </div>
                 <div class="visualClear"><!-- --></div>
 
-				<tal:columns tal:define="columns python: range(1, column_amount + 1)"
-				             tal:repeat="i columns" >
-					<div tal:content="structure provider:plone.dashboard${i}"
-						tal:attributes="id string:dashboard-portlets${i};
-										class string:dashboard-column;"
-					/>
+                <tal:columns tal:define="columns python: range(1, column_amount + 1)"
+                             tal:repeat="i columns" >
+                    <div tal:content="structure provider:plone.dashboard${i}"
+                        tal:attributes="id string:dashboard-portlets${i};
+                                        class string:dashboard-column;"
+                    />
 
-				</tal:columns>
+                </tal:columns>
 
             </div>
             <div class="visualClear"><!-- --></div>
