@@ -84,7 +84,7 @@
 
                         <div id="dashboard"
                              tal:define="column_amount python:context.portal_properties.get('ftw.dashboard') and context.portal_properties.get('ftw.dashboard').columnNumber or 4"
-                             tal:attributes="class string:dashboard-columns-${column_amount}">
+                             tal:attributes="class string:documentEditable dashboard-columns-${column_amount}">
                             <div id="dashboard-add-portlet" tal:define="referer python:context.absolute_url()+'/'+ view.__name__;">
                                 <form tal:attributes="action python:context.portal_url()">
                                     <textarea style="display:none" tal:content="referer" rows="" cols="" name="referer"></textarea>
