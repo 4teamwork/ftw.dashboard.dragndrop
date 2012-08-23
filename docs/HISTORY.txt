@@ -10,6 +10,9 @@ Changelog
   Styled for 3-columns.
   [jone]
 
+- Update French translations.
+  [ttschanz]
+
 - Added attributes cols and rows to textarea (W3C).
   [Julian Infanger]
 
