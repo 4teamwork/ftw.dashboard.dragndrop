@@ -29,7 +29,7 @@ jq(function() {
         }
         actions += '</div>';
         jq(actions).insertAfter(jq('.portletTopLeft',obj));
-    }
+    };
 
     var update_dashboard_order = function(event, ui) {
         // the update event handler is called twice (once with ui.sender
@@ -63,7 +63,7 @@ jq(function() {
                     //kss attribute portlethash must be fixed
                     if(jq('#portletwrapper-'+ oldHash).hasClass('kssattr-portlethash-'+oldHash)){
                         var classes = jq('#portletwrapper-' + oldHash)[0].getAttribute('class');
-                        if(classes!=null) {
+                        if(classes!==null) {
                             classes = classes.replace('kssattr-portlethash-' + oldHash, 'kssattr-portlethash-'+ newHash);
                             jq('#portletwrapper-'+ oldHash)[0].setAttribute('class', classes);
                         }
@@ -142,7 +142,7 @@ jq(function() {
         });
 
         //special workarround for fav portlet
-        if (jq(this).parents('.portletwrapper:first').find('.portletItem').length==0){
+        if (jq(this).parents('.portletwrapper:first').find('.portletItem').length===0){
             jq(this).parents('.portletwrapper:first').find('.portletItemEmpty').toggle().end();
             }
     });
@@ -183,7 +183,7 @@ jq(function() {
     jq('.portletFavourites .close.favRemove').live('click',function(e){
         var uid = jq(this).attr('id');
         jq.post('./ftw_dashboard_dragndrop_remove_favorite',{ uid : uid },function(data){
-            if (data==''){
+            if (data===''){
                 alert('for some reason the favorite could not be delted, sorry');
             }
             if (data=='OK'){
@@ -192,8 +192,8 @@ jq(function() {
                     jq(v).remove();
                 });
 
-                if (jq('.portletFavourites .close.favRemove').length==0){
-                    jq('span.noFavs').closest('.portletItemEmpty').show()
+                if (jq('.portletFavourites .close.favRemove').length===0){
+                    jq('span.noFavs').closest('.portletItemEmpty').show();
                 }
             }
 
