@@ -25,29 +25,4 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-    <browser:resource
-        name="icon_close_box.gif"
-        file="icons/icon_close_box.gif"
-        />
-
-   <browser:resource
-        name="icon_open_box.gif"
-        file="icons/icon_open_box.gif"
-        />
-
-   <browser:resource
-        name="icon_remove_box.gif"
-        file="icons/icon_remove_box.gif"
-        />
-
-   <browser:resource
-       name="icon_move_box.gif"
-       file="icons/icon_move_box.png"
-       />
-
-   <browser:resource
-        name="icon_edit_box.gif"
-        file="icons/icon_edit_box.gif"
-        />
-
 </configure>
