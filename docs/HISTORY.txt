@@ -5,6 +5,10 @@ Changelog
 1.3.5 (unreleased)
 ------------------
 
+- Use links and span tag with background-images for portletActions.
+  Removed old portlet icons. Added styling for portletActions.
+  [Julian Infanger]
+
 - Add dashboard-columns-X class on manage-dashboard view too.
   [jone]
 
