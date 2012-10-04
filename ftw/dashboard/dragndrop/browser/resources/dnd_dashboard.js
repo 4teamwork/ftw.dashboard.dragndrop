@@ -145,6 +145,23 @@ jq(function() {
         wrapper.hide().remove();
     });
 
+    // This is needed when the calendar reloads to display the next month
+    jq('.portletwrapper .portletHeader a').live('click', function(){
+        jq(this).append(jq('<div class="crap"></div>'));
+        var wrapper = jq(this).parents('.portletwrapper:first');
+        var column = wrapper.parents('.dashboard-column:first');
+        var wrapper_id = wrapper.attr('id');
+        var reset_icon = function(){
+            var obj = jq(column).find('#'+wrapper_id);
+            if (jq('.crap', obj).length>0){
+                setTimeout((reset_icon), 100);
+            } else {
+                print_images(jq( '.portletHeader',obj));
+            }
+        };
+        reset_icon();
+    });
+
     /* REMOVE Favourite*/
     jq('.portletFavourites .close.favRemove').live('click',function(e){
         var uid = jq(this).attr('id');
