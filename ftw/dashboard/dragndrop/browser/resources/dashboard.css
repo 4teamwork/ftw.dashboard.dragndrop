@@ -37,7 +37,7 @@
   top: 0;
   background: rgba(245, 250, 254, 0.9);
   border-left: 1px solid #E7ECF0;
-  padding: 0.4em 1em 0 1em;
+  padding: 0.4em 1em 0 0.5em;
 }
 .portlet:hover .portletHeader .portletActionsWrapper {
   display: block;
@@ -49,6 +49,9 @@
   width: 16px;
   margin-left: 3px;
   display: inline-block;
+}
+.portletActionsWrapper a:first-child {
+  margin-left: 0;
 }
 .portletActionsWrapper span.buttonMove {
   background-position: 0 0;
@@ -79,6 +82,9 @@
 }
 .portletActionsWrapper a.buttonRemove:hover {
   background-position:0 -450px;
+}
+.portletCalendar dt.portletHeader {
+  text-align: left;
 }
 
 /* @end */
