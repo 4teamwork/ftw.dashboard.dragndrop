@@ -2,30 +2,21 @@ jq(function() {
 
     var print_images = function(obj){
         var actions = '<div class="portletActionsWrapper">';
+        // Fold functionality always
         if(jq('.documentEditable').length !== 0){
+            if (obj.parents('.portletwrapper:first').hasClass('folded')) {
+                actions += "<a class='dashboardButton buttonOpen' href='#'>&nbsp;</a>";
+            }
+            else{
+                actions+="<a class='dashboardButton buttonClose' href='#'>&nbsp;</a>";
+            }
             //Hash auslessen
             var hash = obj.parents('.portletwrapper:first')[0].id.substr('portletwrapper-'.length);
-            //Fold Functionality
-            if (obj.parents('.portletwrapper:first').hasClass('folded')) {
-                 actions += "<div class='dashboardButton buttonOpen'><img src='"+portal_url+"/++resource++icon_open_box.gif' align='right' class='fold' alt='fold'/></div>";
-            }
-            else{
-                 actions+="<div class='dashboardButton buttonClose'><img src='"+portal_url+"/++resource++icon_close_box.gif' align='right' class='fold' alt='fold'/></div>";
-            }
-            actions += '<div class="dashboardButton buttonMove"><img src="'+portal_url+'/++resource++icon_move_box.gif" align="right" class="move" alt="move"/></div>';
+            actions += '<span class="dashboardButton buttonMove">&nbsp;</span>';
             if (obj.parents('.portletwrapper:first').hasClass('editable')) {
-                actions += '<div class="dashboardButton buttonEdit"><a class="edit" href="dashboardEditLinkView?hash='+hash+'"> <img src=" '+portal_url+'/++resource++icon_edit_box.gif" align="right" class="edit" alt="remove"> </a></div>';
+                actions += '<a class="dashboardButton buttonEdit" href="dashboardEditLinkView?hash='+hash+'">&nbsp;</a>';
             }
-            actions += '<div class="dashboardButton buttonRemove"><img src="'+portal_url+'/++resource++icon_remove_box.gif" align="right" class="close" alt="remove"></img>';
-        }
-        else{
-            //Only Fold Functionality
-            if (jq(obj).parents('.portletwrapper:first').hasClass('folded')) {
-                 actions += "<div class='dashboardButton buttonOpen'><img src='"+portal_url+"/++resource++icon_open_box.gif' align='right' class='fold' alt='fold'/></div>";
-            }
-            else{
-                 actions += "<div class='dashboardButton buttonClose'><img src='"+portal_url+"/++resource++icon_close_box.gif' align='right' class='fold' alt='fold'/></div>";
-            }
+            actions += '<a class="dashboardButton buttonRemove" href="#">&nbsp;</a>';
         }
         actions += '</div>';
         jq(actions).insertAfter(jq('.portletTopLeft',obj));
@@ -114,19 +105,11 @@ jq(function() {
     jq('.column').disableSelection();
 
     /* TOGGLE PORTLET CONTENT */
-    jq('.portletHeader .fold').live('click',function() {
+    jq('.portletHeader a.buttonOpen, .portletHeader a.buttonClose').live('click',function(e) {
+      e.preventDefault();
         jq(this).parents('.portletwrapper:first').toggleClass('folded');
-
-        if (jq(this).parents('.portletwrapper:first').hasClass('folded')) {
-            //Change icon
-            this.setAttribute('src', portal_url+ '/++resource++icon_open_box.gif');
-            jq(this).parents('.dashboardButton:first').removeClass('buttonClose').addClass('buttonOpen');
-        }
-        else{
-            //Change icon
-            this.setAttribute('src', portal_url+ '/++resource++icon_close_box.gif');
-            jq(this).parents('.dashboardButton:first').removeClass('buttonOpen').addClass('buttonClose');
-        }
+        //Change icon
+        jq(this).toggleClass('buttonClose').toggleClass('buttonOpen');
 
         var wrapper = jq(this).parents('.portletwrapper:first');
         var hash = wrapper[0].id.substr('portletwrapper-'.length);
@@ -148,7 +131,8 @@ jq(function() {
     });
 
     /* REMOVE PORTLET */
-    jq('.portletHeader .close').live('click',function() {
+    jq('.portletHeader a.buttonRemove').live('click',function(e) {
+        e.preventDefault();
         var wrapper = jq(this).parents('.portletwrapper:first');
         var hash = wrapper[0].id.substr('portletwrapper-'.length);
         // request
@@ -161,8 +145,7 @@ jq(function() {
         wrapper.hide().remove();
     });
 
-
-    /*REGISTER EVENT FOR PORTLETRELOAD*/
+    // This is needed when the calendar reloads to display the next month
     jq('.portletwrapper .portletHeader a').live('click', function(){
         jq(this).append(jq('<div class="crap"></div>'));
         var wrapper = jq(this).parents('.portletwrapper:first');

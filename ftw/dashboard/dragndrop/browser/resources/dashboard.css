@@ -24,10 +24,71 @@
 .portletHeader {
     cursor: move;
 }
-.fold, .close , .edit {
-    cursor: pointer;
-    float:right;
+
+/* @group dashboard actions */
+.portletHeader {
+  position: relative;
 }
+.portletHeader .portletActionsWrapper {
+  float: right;
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: rgba(245, 250, 254, 0.9);
+  border-left: 1px solid #E7ECF0;
+  padding: 0.4em 1em 0 0.5em;
+}
+.portlet:hover .portletHeader .portletActionsWrapper {
+  display: block;
+}
+
+.portletActionsWrapper a,
+.portletActionsWrapper span {
+  background: url(++resource++ftw.dashboard.dragndrop.resources/portlet_actions.png) no-repeat;
+  width: 16px;
+  margin-left: 3px;
+  display: inline-block;
+}
+.portletActionsWrapper a:first-child {
+  margin-left: 0;
+}
+.portletActionsWrapper span.buttonMove {
+  background-position: 0 0;
+}
+.portletActionsWrapper span.buttonMove:hover {
+  background-position:0 -50px;
+}
+.portletActionsWrapper a.buttonEdit {
+  background-position:0 -100px;
+}
+.portletActionsWrapper a.buttonEdit:hover {
+  background-position:0 -150px;
+}
+.portletActionsWrapper a.buttonClose {
+  background-position:0 -200px;
+}
+.portletActionsWrapper a.buttonClose:hover {
+  background-position:0 -250px;
+}
+.portletActionsWrapper a.buttonOpen {
+  background-position:0 -300px;
+}
+.portletActionsWrapper a.buttonOpen:hover {
+  background-position:0 -350px;
+}
+.portletActionsWrapper a.buttonRemove {
+  background-position:0 -400px;
+}
+.portletActionsWrapper a.buttonRemove:hover {
+  background-position:0 -450px;
+}
+.portletCalendar dt.portletHeader {
+  text-align: left;
+}
+
+/* @end */
+
 
 span.noEntries {
     width:20.6em;
