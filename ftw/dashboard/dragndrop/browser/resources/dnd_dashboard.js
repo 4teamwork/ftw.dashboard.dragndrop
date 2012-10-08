@@ -99,7 +99,7 @@ jq(function() {
         stop :          function(){jq('body').removeClass('dragPortlet');revertDropZone();},
         distance :      10,
         handle :        '.portletHeader',
-        revert :        false,
+        revert :        true,
         tolerance :     'pointer',
         update :        update_dashboard_order
     });
