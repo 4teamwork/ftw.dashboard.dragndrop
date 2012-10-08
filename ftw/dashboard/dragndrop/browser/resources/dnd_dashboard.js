@@ -1,6 +1,7 @@
 jq(function() {
 
-    var updateDropZone = function() {
+    var updateDropZoneHeight = function() {
+      jq('.dashboard-column').css('min-height', '0px');
       var sizes = []
       jq('.dashboard-column').each(function(index, value){
         sizes.push(jq(value).height());
@@ -9,12 +10,7 @@ jq(function() {
       jq('.dashboard-column').css('min-height', Math.max.apply(Math, sizes)+'px');
     };
 
-    var revertDropZone = function() {
-      jq('.dashboard-column').css('min-height', '0px');
-      updateDropZone();
-    };
-
-    updateDropZone();
+    updateDropZoneHeight();
 
     var print_images = function(obj){
         var actions = '<div class="portletActionsWrapper">';
@@ -109,8 +105,8 @@ jq(function() {
     jq('.dashboard-column').sortable({
         connectWith :   jq('.dashboard-column'),
         cursor :        'move',
-        start :         function(){jq('body').addClass('dragPortlet');updateDropZone();},
-        stop :          function(){jq('body').removeClass('dragPortlet');revertDropZone();},
+        start :         function(){jq('body').addClass('dragPortlet');},
+        stop :          function(){jq('body').removeClass('dragPortlet');updateDropZoneHeight();},
         distance :      10,
         handle :        '.portletHeader',
         revert :        true,
