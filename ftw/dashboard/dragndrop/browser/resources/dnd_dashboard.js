@@ -1,5 +1,7 @@
 jq(function() {
 
+    updateDropZone();
+
     var print_images = function(obj){
         var actions = '<div class="portletActionsWrapper">';
         // Fold functionality always
@@ -93,14 +95,27 @@ jq(function() {
     jq('.dashboard-column').sortable({
         connectWith :   jq('.dashboard-column'),
         cursor :        'move',
-        start :         function(){jq('body').addClass('dragPortlet');},
-        stop :          function(){jq('body').removeClass('dragPortlet');},
+        start :         function(){jq('body').addClass('dragPortlet');updateDropZone();},
+        stop :          function(){jq('body').removeClass('dragPortlet');revertDropZone();},
         distance :      10,
         handle :        '.portletHeader',
-        revert :        true,
+        revert :        false,
         tolerance :     'pointer',
         update :        update_dashboard_order
     });
+
+    function updateDropZone() {
+      var sizes = []
+      jq('.dashboard-column').each(function(index, value){
+        sizes.push(jq(value).height());
+      });
+      // set biggest value in array as min-height
+      jq('.dashboard-column').css('min-height', Math.max.apply(Math, sizes)+'px');
+    }
+    function revertDropZone() {
+      jq('.dashboard-column').css('min-height', '0px');
+      updateDropZone();
+    }
 
     jq('.column').disableSelection();
 

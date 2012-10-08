@@ -5,6 +5,9 @@ Changelog
 1.3.5 (unreleased)
 ------------------
 
+- Update dashboard column height when draging a portlet.
+  [Julian Infanger]
+
 - Use links and span tag with background-images for portletActions.
   Removed old portlet icons. Added styling for portletActions.
   [Julian Infanger]
