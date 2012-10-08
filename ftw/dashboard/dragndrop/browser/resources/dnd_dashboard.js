@@ -1,5 +1,19 @@
 jq(function() {
 
+    var updateDropZone = function() {
+      var sizes = []
+      jq('.dashboard-column').each(function(index, value){
+        sizes.push(jq(value).height());
+      });
+      // set biggest value in array as min-height
+      jq('.dashboard-column').css('min-height', Math.max.apply(Math, sizes)+'px');
+    };
+
+    var revertDropZone = function() {
+      jq('.dashboard-column').css('min-height', '0px');
+      updateDropZone();
+    };
+
     updateDropZone();
 
     var print_images = function(obj){
@@ -103,20 +117,6 @@ jq(function() {
         tolerance :     'pointer',
         update :        update_dashboard_order
     });
-
-    var updateDropZone = function() {
-      var sizes = []
-      jq('.dashboard-column').each(function(index, value){
-        sizes.push(jq(value).height());
-      });
-      // set biggest value in array as min-height
-      jq('.dashboard-column').css('min-height', Math.max.apply(Math, sizes)+'px');
-    };
-
-    var revertDropZone = function() {
-      jq('.dashboard-column').css('min-height', '0px');
-      updateDropZone();
-    };
 
     jq('.column').disableSelection();
 
