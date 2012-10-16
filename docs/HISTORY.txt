@@ -5,6 +5,9 @@ Changelog
 1.3.5 (unreleased)
 ------------------
 
+- Added a nbsp to make sure the add portlet form is aligned right in IE and Chrome.
+  [Julian Infanger]
+
 - Update dashboard column height when draging a portlet.
   [Julian Infanger]
 
