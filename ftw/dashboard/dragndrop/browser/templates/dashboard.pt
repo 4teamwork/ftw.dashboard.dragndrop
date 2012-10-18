@@ -57,12 +57,6 @@
 
             <a name="documentContent"></a>
 
-            <div metal:use-macro="context/global_statusmessage/macros/portal_message">
-                Portal status message
-            </div>
-
-
-
             <div id="dashboard-actions"
                  tal:define="controlPanel python:modules['Products.CMFCore.utils'].getToolByName(here, 'portal_controlpanel');
                              groups python:controlPanel.getGroups('member');
@@ -73,15 +67,7 @@
                 <span tal:replace="name" i18n:name="user_name" />'s dashboard
             </h1>
 
-            <dl tal:condition="view/empty"
-                class="portalMessage info visualClear" id="dashboard-info-message">
-                <dt i18n:translate="">Info</dt>
-                <dd i18n:translate="info_empty_dashboard">
-                    Your dashboard is currently empty. Click the
-                    <em>edit</em> tab to assign some personal
-                    portlets.
-                </dd>
-            </dl>
+            <div class="visualClear"><!-- --></div>
 
             <div id="dashboard"
                  tal:define="column_amount python:context.portal_properties.get('ftw.dashboard') and context.portal_properties.get('ftw.dashboard').columnNumber or 4;"
@@ -102,6 +88,21 @@
                         <input type="submit" class="submit" value="add" i18n:attributes="value">
                     </form>
                 </div>
+
+                <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+                    Portal status message
+                </div>
+
+                <dl tal:condition="view/empty"
+                    class="portalMessage info visualClear" id="dashboard-info-message">
+                    <dt i18n:translate="">Info</dt>
+                    <dd i18n:translate="info_empty_dashboard">
+                        Your dashboard is currently empty. Click the
+                        <em>edit</em> tab to assign some personal
+                        portlets.
+                    </dd>
+                </dl>
+
                 <div class="visualClear"><!-- --></div>
 
                 <tal:columns tal:define="columns python: range(1, column_amount + 1)"

@@ -5,7 +5,9 @@ Changelog
 1.4.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Move portal status messages in dashboard beneath add menu.
+  This allows a consistent UI where the add menu is not moved around anymore.
+  [jone]
 
 
 1.4 (2012-10-16)
