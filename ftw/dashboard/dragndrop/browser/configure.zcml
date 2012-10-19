@@ -5,45 +5,42 @@
     i18n_domain="ftw.dashboard.dragndrop">
 
     <include package="plone.app.contentmenu" />
-	<include package="plone.app.portlets" />
+    <include package="plone.app.portlets" />
 
     <!-- Resource directory -->
     <browser:resourceDirectory
         name="ftw.dashboard.dragndrop.resources"
         directory="resources"
-        /> 
+        />
 
-    <adapter 
-      factory=".ftwDashboardPortletManagerRenderer.FtwDashboardPortletManagerRenderer"
-      provides="plone.portlets.interfaces.IPortletManagerRenderer"
-      />
+    <adapter
+        factory=".ftwDashboardPortletManagerRenderer.FtwDashboardPortletManagerRenderer"
+        provides="plone.portlets.interfaces.IPortletManagerRenderer"
+        />
 
     <browser:page
         for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
         name="dashboard"
-	    class=".dashboard.FTWDashBoard"
+        class=".dashboard.FTWDashBoard"
         permission="plone.app.portlets.ManageOwnPortlets"
         template="templates/dashboard.pt"
         />
-	<!--
-        class="plone.app.layout.dashboard.dashboard.DashboardView"
-	-->
 
-	<browser:page
-		for="plone.app.layout.navigation.interfaces.INavigationRoot"
-		name="dashboardEditLinkView"
-		class=".dashboardEditLinkView.DashboardEditLinkView"
-		permission="plone.app.portlets.ManageOwnPortlets"
-		/>
-		
-	<browser:page
-		for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
-		name="manage-dashboard"
-		permission="plone.app.portlets.ManageOwnPortlets"
+    <browser:page
+        for="plone.app.layout.navigation.interfaces.INavigationRoot"
+        name="dashboardEditLinkView"
+        class=".dashboardEditLinkView.DashboardEditLinkView"
+        permission="plone.app.portlets.ManageOwnPortlets"
+        />
+
+    <browser:page
+        for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
+        name="manage-dashboard"
+        permission="plone.app.portlets.ManageOwnPortlets"
         class=".dashboard.FTWDashBoard"
-		template="templates/manage-dashboard.pt"
-		/>
-	
+        template="templates/manage-dashboard.pt"
+        />
+
     <browser:page
         for="*"
         name="ftw.dashboard.dragndrop-update_order"
@@ -64,13 +61,13 @@
         permission="zope2.View"
         class=".foldportlet.FoldPortlet"
         />
-    
+
     <browser:page
         for="*"
         name="reset-dashboard"
         permission="zope2.View"
         class=".reset.ResetView"
         />
-        
-        
+
+
 </configure>
