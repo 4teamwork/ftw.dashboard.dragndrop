@@ -5,6 +5,9 @@ Changelog
 1.4.1 (unreleased)
 ------------------
 
+- Add missing browser layers to views.
+  [jone]
+
 - Move portal status messages in dashboard beneath add menu.
   This allows a consistent UI where the add menu is not moved around anymore.
   [jone]

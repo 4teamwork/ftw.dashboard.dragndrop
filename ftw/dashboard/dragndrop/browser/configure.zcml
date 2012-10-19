@@ -24,6 +24,7 @@
         class=".dashboard.FTWDashBoard"
         permission="plone.app.portlets.ManageOwnPortlets"
         template="templates/dashboard.pt"
+        layer="ftw.dashboard.dragndrop.browser.interfaces.IDashboardLayer"
         />
 
     <browser:page
@@ -31,6 +32,7 @@
         name="dashboardEditLinkView"
         class=".dashboardEditLinkView.DashboardEditLinkView"
         permission="plone.app.portlets.ManageOwnPortlets"
+        layer="ftw.dashboard.dragndrop.browser.interfaces.IDashboardLayer"
         />
 
     <browser:page
@@ -39,6 +41,7 @@
         permission="plone.app.portlets.ManageOwnPortlets"
         class=".dashboard.FTWDashBoard"
         template="templates/manage-dashboard.pt"
+        layer="ftw.dashboard.dragndrop.browser.interfaces.IDashboardLayer"
         />
 
     <browser:page
@@ -46,6 +49,7 @@
         name="ftw.dashboard.dragndrop-update_order"
         permission="zope2.View"
         class=".updateorder.UpdateOrder"
+        layer="ftw.dashboard.dragndrop.browser.interfaces.IDashboardLayer"
         />
 
     <browser:page
@@ -53,6 +57,7 @@
         name="ftw.dashboard.dragndrop-removeportlet"
         permission="zope2.View"
         class=".removeportlet.RemovePortlet"
+        layer="ftw.dashboard.dragndrop.browser.interfaces.IDashboardLayer"
         />
 
     <browser:page
@@ -60,6 +65,7 @@
         name="ftw.dashboard.dragndrop-foldportlet"
         permission="zope2.View"
         class=".foldportlet.FoldPortlet"
+        layer="ftw.dashboard.dragndrop.browser.interfaces.IDashboardLayer"
         />
 
     <browser:page
@@ -67,6 +73,7 @@
         name="reset-dashboard"
         permission="zope2.View"
         class=".reset.ResetView"
+        layer="ftw.dashboard.dragndrop.browser.interfaces.IDashboardLayer"
         />
 
 

@@ -1,10 +1,10 @@
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from ftw.dashboard.dragndrop.browser.interfaces import IDashboardLayer
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.app.portlets.interfaces import IDashboard
 from plone.app.portlets.manager import DashboardPortletManagerRenderer
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.component import adapts, queryMultiAdapter
 from zope.publisher.interfaces.browser import IBrowserView
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 
 class FtwDashboardPortletManagerRenderer(DashboardPortletManagerRenderer):
@@ -13,7 +13,7 @@ class FtwDashboardPortletManagerRenderer(DashboardPortletManagerRenderer):
 
     adapts(
         INavigationRoot,
-        IDefaultBrowserLayer,
+        IDashboardLayer,
         IBrowserView,
         IDashboard)
     template = ViewPageTemplateFile('templates/dashboard-column.pt')
