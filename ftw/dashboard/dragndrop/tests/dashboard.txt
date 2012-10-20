@@ -4,6 +4,13 @@ Set manager role for test user
     >>> from plone.app.testing import setRoles
 
     >>> portal = layer['portal']
+
+    >>> # setup manually the correct browserlayer, see:
+    >>> # https://dev.plone.org/ticket/11673
+    >>> from zope.event import notify
+    >>> from zope.traversing.interfaces import BeforeTraverseEvent
+    >>> notify(BeforeTraverseEvent(portal, portal.REQUEST))
+
     >>> setRoles(portal, TEST_USER_ID, ['Manager',])
     >>> props = portal.portal_properties.get('ftw.dashboard')
 
