@@ -26,8 +26,8 @@ Default behavior: 4 dashboard columns
     True
     >>> rendered.request.get('disable_plone.leftcolumn', False)
     True
-    
-    
+
+
 Show portal-column-two and three 3 dashboard columns
 
     >>> props._setPropValue('showrightcolumn', True)
@@ -62,4 +62,3 @@ Show portal-column-one, portal-column-two and two 3 dashboard columns
     False
     >>> rendered.request.get('disable_plone.rightcolumn', False)
     False
-
