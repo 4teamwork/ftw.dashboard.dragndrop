@@ -147,31 +147,40 @@ jq(function() {
     e.preventDefault();
     var wrapper = jq(this).parents('.portletwrapper:first');
     var hash = wrapper.attr('id').substr('portletwrapper-'.length);
-    // request
-    jq.ajax({
-      type :      'POST',
-      url :       './ftw.dashboard.dragndrop-removeportlet',
-      data :      'hash='.concat(hash)
-    });
-    // destroy it
-    wrapper.hide().remove();
-  });
-
-  // This is needed when the calendar reloads to display the next month
-  jq('.portletwrapper .portletHeader a').live('click', function(){
-    jq(this).append(jq('<div class="crap"></div>'));
-    var wrapper = jq(this).parents('.portletwrapper:first');
-    var column = wrapper.parents('.dashboard-column:first');
-    var wrapper_id = wrapper.attr('id');
-    var reset_icon = function(){
-      var obj = jq(column).find('#'+wrapper_id);
-      if (jq('.crap', obj).length>0){
-        setTimeout((reset_icon), 100);
-      } else {
-        print_images(jq( '.portletHeader',obj));
-      }
-    };
-    reset_icon();
+    var pos = (jq('#visual-portal-wrappers').width() / 2) - 150;
+    // fallback if there is no element visual-portal-wrapper
+    if (jq('#visual-portal-wrappers').length == 0) {
+      pos = (jq('body').width() / 2) - 150;
+    }
+    jq('<div></div>')
+      .html('<div id="remove-portlet-dialog">'+jq('#text-remove-portlet').html()+'</div>')
+      .dialog({
+        modal: true, resizable: false, position:[pos, 100],
+        buttons: [
+          {
+            text: jq("#text-remove-portlet-yes").html(),
+            click: function () {
+              jq.ajax({
+                type : 'POST',
+                url : './ftw.dashboard.dragndrop-removeportlet',
+                data : 'hash='.concat(hash)
+              });
+              // destroy it
+              wrapper.hide().remove();
+              $(this).dialog("close");
+            },
+          },
+          {
+            text: jq("#text-remove-portlet-no").html(),
+            click: function () {
+              $(this).dialog("close");
+            }
+          }
+        ],
+        close: function (event, ui) {
+          $(this).remove();
+        }
+      });
   });
 
   /* REMOVE Favourite*/

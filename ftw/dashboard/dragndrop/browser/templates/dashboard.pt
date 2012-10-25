@@ -120,6 +120,15 @@ tal:attributes="id string:regio-content;
 
           </div> <!-- end simulated tabs -->
 
+          <!-- Translations for remove portlet dialog popup -->
+          <div class="hiddenStructure">
+            <span id="text-remove-portlet"
+                  i18n:domain="ftw.dashboard.dragndrop"
+                  i18n:translate="">Do you really want to remove this portlet?</span>
+            <span id="text-remove-portlet-yes" i18n:translate="">Yes</span>
+            <span id="text-remove-portlet-no" i18n:translate="">No</span>
+          </div>
+
         </tal:main-macro>
 
       </metal:main>

@@ -5,6 +5,9 @@ Changelog
 1.4.1 (unreleased)
 ------------------
 
+- Show a dialogbox to confirm if you want to delete a portlet.
+  [Julian Infanger]
+
 - Add missing browser layers to views.
   [jone]
 
