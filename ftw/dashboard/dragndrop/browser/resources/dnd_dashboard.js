@@ -23,7 +23,7 @@ jq(function() {
         actions+="<a class='dashboardButton buttonClose' href='#'>&nbsp;</a>";
       }
       //Hash auslessen
-      var hash = obj.parents('.portletwrapper:first')[0].id.substr('portletwrapper-'.length);
+      var hash = obj.parents('.portletwrapper:first').attr('id').substr('portletwrapper-'.length);
       actions += '<span class="dashboardButton buttonMove">&nbsp;</span>';
       if (obj.parents('.portletwrapper:first').hasClass('editable')) {
         actions += '<a class="dashboardButton buttonEdit" href="dashboardEditLinkView?hash='+hash+'">&nbsp;</a>';
@@ -65,14 +65,14 @@ jq(function() {
 
           //kss attribute portlethash must be fixed
           if(jq('#portletwrapper-'+ oldHash).hasClass('kssattr-portlethash-'+oldHash)){
-            var classes = jq('#portletwrapper-' + oldHash)[0].getAttribute('class');
+            var classes = jq('#portletwrapper-' + oldHash).attr('class');
             if(classes!==null) {
               classes = classes.replace('kssattr-portlethash-' + oldHash, 'kssattr-portlethash-'+ newHash);
-              jq('#portletwrapper-'+ oldHash)[0].setAttribute('class', classes);
+              jq('#portletwrapper-'+ oldHash).attr('class', classes);
             }
           }
 
-          jq('#portletwrapper-' + oldHash)[0].setAttribute('id', 'portletwrapper-' + newHash);
+          jq('#portletwrapper-' + oldHash).attr('id', 'portletwrapper-' + newHash);
 
           // edit link must be fixed: the column id may be wrong!
           // test if there is a edit link
@@ -124,7 +124,7 @@ jq(function() {
     jq(this).toggleClass('buttonClose').toggleClass('buttonOpen');
 
     var wrapper = jq(this).parents('.portletwrapper:first');
-    var hash = wrapper[0].id.substr('portletwrapper-'.length);
+    var hash = wrapper.attr('id').substr('portletwrapper-'.length);
 
     var folded = 0;
     if (jq(this).parents('.portletwrapper:first').hasClass('folded')) {
@@ -146,7 +146,7 @@ jq(function() {
   jq('.portletHeader a.buttonRemove').live('click',function(e) {
     e.preventDefault();
     var wrapper = jq(this).parents('.portletwrapper:first');
-    var hash = wrapper[0].id.substr('portletwrapper-'.length);
+    var hash = wrapper.attr('id').substr('portletwrapper-'.length);
     // request
     jq.ajax({
       type :      'POST',
