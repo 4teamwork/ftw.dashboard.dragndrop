@@ -13,9 +13,9 @@ jq(function() {
   updateDropZoneHeight();
 
   var print_images = function(obj){
-    var actions = '<div class="portletActionsWrapper">';
     // Fold functionality always
     if(jq('.documentEditable').length !== 0){
+      var actions = '<div class="portletActionsWrapper">';
       if (obj.parents('.portletwrapper:first').hasClass('folded')) {
         actions += "<a class='dashboardButton buttonOpen' href='#'>&nbsp;</a>";
       }
@@ -29,9 +29,9 @@ jq(function() {
         actions += '<a class="dashboardButton buttonEdit" href="dashboardEditLinkView?hash='+hash+'">&nbsp;</a>';
       }
       actions += '<a class="dashboardButton buttonRemove" href="#">&nbsp;</a>';
+      actions += '</div>';
+      jq(actions).insertAfter(jq('.portletTopLeft',obj));
     }
-    actions += '</div>';
-    jq(actions).insertAfter(jq('.portletTopLeft',obj));
   };
 
   var update_dashboard_order = function(event, ui) {

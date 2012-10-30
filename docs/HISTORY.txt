@@ -5,6 +5,10 @@ Changelog
 1.4.1 (unreleased)
 ------------------
 
+- Do not show actions bar at all when dashboard is not editable.
+  Before it did show the bar but it contained no actions.
+  [jone]
+
 - Show a dialogbox to confirm if you want to delete a portlet.
   [Julian Infanger]
 
