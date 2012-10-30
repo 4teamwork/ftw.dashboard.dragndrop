@@ -15,6 +15,4 @@ msgstr ""
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:125
 #: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:123
 msgid "Do you really want to remove this portlet?"
-msgstr "Wollen Sie diese Infobox wirklich löschen?"
-
-
+msgstr "Wollen Sie dieses Portlet wirklich löschen?"
