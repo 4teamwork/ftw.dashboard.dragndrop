@@ -42,44 +42,60 @@
   display: block;
 }
 
-.portletActionsWrapper a,
-.portletActionsWrapper span {
+dl.portlet dt .portletActionsWrapper a,
+dl.portlet dt .portletActionsWrapper span {
   background: url(++resource++ftw.dashboard.dragndrop.resources/portlet_actions.png) no-repeat;
   width: 16px;
+  min-height: 20px;
   margin-left: 3px;
   display: inline-block;
 }
-.portletActionsWrapper a:first-child {
+
+.portletCalendar dt a#calendar-previous {
+    float: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+.portletCalendar dt a#calendar-next {
+    float: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+
+dl.portlet dt .portletActionsWrapper a:first-child {
   margin-left: 0;
 }
-.portletActionsWrapper span.buttonMove {
+dl.portlet dt .portletActionsWrapper span.buttonMove {
   background-position: 0 0;
 }
-.portletActionsWrapper span.buttonMove:hover {
+dl.portlet dt .portletActionsWrapper span.buttonMove:hover {
   background-position:0 -50px;
 }
-.portletActionsWrapper a.buttonEdit {
+dl.portlet dt .portletActionsWrapper a.buttonEdit {
   background-position:0 -100px;
 }
-.portletActionsWrapper a.buttonEdit:hover {
+dl.portlet dt .portletActionsWrapper a.buttonEdit:hover {
   background-position:0 -150px;
 }
-.portletActionsWrapper a.buttonClose {
+dl.portlet dt .portletActionsWrapper a.buttonClose {
   background-position:0 -200px;
 }
-.portletActionsWrapper a.buttonClose:hover {
+dl.portlet dt .portletActionsWrapper a.buttonClose:hover {
   background-position:0 -250px;
 }
-.portletActionsWrapper a.buttonOpen {
+dl.portlet dt .portletActionsWrapper a.buttonOpen {
   background-position:0 -300px;
 }
-.portletActionsWrapper a.buttonOpen:hover {
+dl.portlet dt .portletActionsWrapper a.buttonOpen:hover {
   background-position:0 -350px;
 }
-.portletActionsWrapper a.buttonRemove {
+dl.portlet dt .portletActionsWrapper a.buttonRemove {
   background-position:0 -400px;
 }
-.portletActionsWrapper a.buttonRemove:hover {
+dl.portlet dt .portletActionsWrapper a.buttonRemove:hover {
   background-position:0 -450px;
 }
 .portletCalendar dt.portletHeader {

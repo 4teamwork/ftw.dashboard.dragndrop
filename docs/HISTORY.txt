@@ -5,6 +5,9 @@ Changelog
 1.4.1 (unreleased)
 ------------------
 
+- Added css for default plone.
+  [Julian Infanger]
+
 - Add missing browser layers to views.
   [jone]
 
