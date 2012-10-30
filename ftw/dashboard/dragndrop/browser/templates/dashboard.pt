@@ -6,123 +6,132 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="plone">
 
-<head>
-    <metal:block fill-slot="top_slot"
-                 tal:define="dummy python:request.set('disable_border',1)" />
-</head>
+    <head>
+        <metal:block fill-slot="top_slot"
+                     tal:define="dummy python:request.set('disable_border',1)" />
+    </head>
 
-<body>
+    <body>
 
-<tal:comment replace="nothing">
-    Please note that this template fills the "content" slot instead of the
-    "main" slot, this is done so we can provide stuff like the content
-    tabs. This also means that we have to supply things that are normally
-    present from main_template.
-</tal:comment>
+        <tal:comment replace="nothing">
+            Please note that this template fills the "content" slot instead of the
+            "main" slot, this is done so we can provide stuff like the content
+            tabs. This also means that we have to supply things that are normally
+            present from main_template.
+        </tal:comment>
 
-<metal:main fill-slot="content">
-    <tal:main-macro metal:define-macro="main"
-                    tal:define="memberinfo here/portal_membership/getMemberInfo;
-                                member context/@@plone_portal_state/member;
-                                name python:memberinfo['fullname'] or member.getId() or member.getId()">
+        <metal:main fill-slot="content">
+            <tal:main-macro metal:define-macro="main"
+                            tal:define="memberinfo here/portal_membership/getMemberInfo;
+                                        member context/@@plone_portal_state/member;
+                                        name python:memberinfo['fullname'] or member.getId() or member.getId()">
 
 
-    <div tal:define="editable python: view.dashboard_props().getProperty('dashboardEditable', False)"
+                <div tal:define="editable python: view.dashboard_props().getProperty('dashboardEditable', False)"
 
-       tal:attributes="id string:regio-content;
-                       class python:editable and 'documentEditable' or ''" >
-        <h5 class="hiddenStructure">Views</h5>
-        <tal:editable tal:condition="not:editable">
-        <ul
-            id="content-views"
-            class="contentViews">
-          <li class="selected">
-            <a href=""
-               tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/dashboard"
-               i18n:translate="label_dashboard">Dashboard</a>
-          </li>
-          <li>
-            <a href=""
-               tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@manage-dashboard"
-               i18n:translate="label_edit">Edit</a>
-          </li>
-        </ul>
+tal:attributes="id string:regio-content;
+                class python:editable and 'documentEditable' or ''" >
+                    <h5 class="hiddenStructure">Views</h5>
+                    <tal:editable tal:condition="not:editable">
+                        <ul
+                            id="content-views"
+                            class="contentViews">
+                            <li class="selected">
+                                <a href=""
+                                   tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/dashboard"
+                                   i18n:translate="label_dashboard">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href=""
+                                   tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@manage-dashboard"
+                                   i18n:translate="label_edit">Edit</a>
+                            </li>
+                        </ul>
 
-        <div class="contentActions">
-          &nbsp;
-        </div>
-        </tal:editable>
+                        <div class="contentActions">
+                            &nbsp;
+                        </div>
+                    </tal:editable>
 
-        <div class="documentContent dashboardContent" id="content">
+                    <div class="documentContent dashboardContent" id="content">
 
-            <a name="documentContent"></a>
+                        <a name="documentContent"></a>
 
-            <div id="dashboard-actions"
-                 tal:define="controlPanel python:modules['Products.CMFCore.utils'].getToolByName(here, 'portal_controlpanel');
-                             groups python:controlPanel.getGroups('member');
-                             getIconFor nocall:context/plone_utils/getIconFor" >
-            </div>
+                        <div id="dashboard-actions"
+                             tal:define="controlPanel python:modules['Products.CMFCore.utils'].getToolByName(here, 'portal_controlpanel');
+                                         groups python:controlPanel.getGroups('member');
+                                         getIconFor nocall:context/plone_utils/getIconFor" >
+                        </div>
 
-            <h1 class="documentFirstHeading" i18n:translate="heading_dashboard">
-                <span tal:replace="name" i18n:name="user_name" />'s dashboard
-            </h1>
+                        <h1 class="documentFirstHeading" i18n:translate="heading_dashboard">
+                            <span tal:replace="name" i18n:name="user_name" />'s dashboard
+                        </h1>
 
-            <div class="visualClear"><!-- --></div>
+                        <div class="visualClear"><!-- --></div>
 
-            <div id="dashboard"
-                 tal:define="column_amount python:context.portal_properties.get('ftw.dashboard') and context.portal_properties.get('ftw.dashboard').columnNumber or 4;"
-                 tal:attributes="class string:dashboard-columns-${column_amount}">
-                <div tal:condition="editable" id="dashboard-add-portlet" tal:define="referer python:context.absolute_url()+'/'+ view.__name__;">
-                    <form tal:attributes="action python:context.portal_url()">
-                        <textarea style="display:none" tal:content="referer" rows="" cols="" name="referer"></textarea>
-                        <select name=":action"
-                            tal:define="dashboard_props python: getattr(context.portal_properties,'ftw.dashboard', None);"
-                            tal:condition="dashboard_props">
-                                <option value=""><tal:block i18n:translate="">choose Portlet</tal:block></option>
-                                <tal:portlets tal:repeat="option view/add_portlet_options">
-                                    <option tal:attributes="value option/value"
-                                            tal:content="option/label" i18n:translate=""> portlet
-                                    </option>
-                                </tal:portlets>
-                        </select>
-                        <input type="submit" class="submit" value="add" i18n:attributes="value">
-                    </form>
-                </div>
+                        <div id="dashboard"
+                             tal:define="column_amount python:context.portal_properties.get('ftw.dashboard') and context.portal_properties.get('ftw.dashboard').columnNumber or 4;"
+                             tal:attributes="class string:dashboard-columns-${column_amount}">
+                            <div tal:condition="editable" id="dashboard-add-portlet" tal:define="referer python:context.absolute_url()+'/'+ view.__name__;">
+                                <form tal:attributes="action python:context.portal_url()">
+                                    <textarea style="display:none" tal:content="referer" rows="" cols="" name="referer"></textarea>
+                                    <select name=":action"
+                                            tal:define="dashboard_props python: getattr(context.portal_properties,'ftw.dashboard', None);"
+                                            tal:condition="dashboard_props">
+                                        <option value=""><tal:block i18n:translate="">choose Portlet</tal:block></option>
+                                        <tal:portlets tal:repeat="option view/add_portlet_options">
+                                            <option tal:attributes="value option/value"
+                                                    tal:content="option/label" i18n:translate=""> portlet
+                                            </option>
+                                        </tal:portlets>
+                                    </select>
+                                    <input type="submit" class="submit" value="add" i18n:attributes="value" />
+                                </form>
+                            </div>
 
-                <div metal:use-macro="context/global_statusmessage/macros/portal_message">
-                    Portal status message
-                </div>
+                            <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+                                Portal status message
+                            </div>
 
-                <dl tal:condition="view/empty"
-                    class="portalMessage info visualClear" id="dashboard-info-message">
-                    <dt i18n:translate="">Info</dt>
-                    <dd i18n:translate="info_empty_dashboard">
-                        Your dashboard is currently empty. Click the
-                        <em>edit</em> tab to assign some personal
-                        portlets.
-                    </dd>
-                </dl>
+                            <dl tal:condition="view/empty"
+                                class="portalMessage info visualClear" id="dashboard-info-message">
+                                <dt i18n:translate="">Info</dt>
+                                <dd i18n:translate="info_empty_dashboard">
+                                    Your dashboard is currently empty. Click the
+                                    <em>edit</em> tab to assign some personal
+                                    portlets.
+                                </dd>
+                            </dl>
 
-                <div class="visualClear"><!-- --></div>
+                            <div class="visualClear"><!-- --></div>
 
-                <tal:columns tal:define="columns python: range(1, column_amount + 1)"
-                             tal:repeat="i columns" >
-                    <div tal:content="structure provider:plone.dashboard${i}"
-                        tal:attributes="id string:dashboard-portlets${i};
-                                        class string:dashboard-column;"
-                    />
+                            <tal:columns tal:define="columns python: range(1, column_amount + 1)"
+                                         tal:repeat="i columns" >
+                                <div tal:content="structure provider:plone.dashboard${i}"
+                                     tal:attributes="id string:dashboard-portlets${i};
+                                                     class string:dashboard-column;"
+                                     />
 
-                </tal:columns>
+                            </tal:columns>
 
-            </div>
-            <div class="visualClear"><!-- --></div>
-        </div>
+                        </div>
+                        <div class="visualClear"><!-- --></div>
 
-    </div> <!-- end simulated tabs -->
+                        <!-- Translations for remove portlet dialog popup -->
+                        <div class="hiddenStructure">
+                            <span id="text-remove-portlet"
+                                  i18n:domain="ftw.dashboard.dragndrop"
+                                  i18n:translate="">Do you really want to remove this portlet?</span>
+                            <span id="text-remove-portlet-yes" i18n:translate="">Yes</span>
+                            <span id="text-remove-portlet-no" i18n:translate="">No</span>
+                        </div>
 
-    </tal:main-macro>
+                    </div>
+                </div> <!-- end simulated tabs -->
 
-</metal:main>
+            </tal:main-macro>
 
-</body>
+        </metal:main>
+
+    </body>
 </html>

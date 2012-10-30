@@ -91,14 +91,14 @@
                                     <select name=":action"
                                             tal:define="dashboard_props python: getattr(context.portal_properties,'ftw.dashboard', None);"
                                             tal:condition="dashboard_props">
-                                            <option value=""><tal:block i18n:translate="">choose Portlet</tal:block></option>
-                                            <tal:portlets tal:repeat="option view/add_portlet_options">
-                                                <option tal:attributes="value option/value"
-                                                        tal:content="option/label" i18n:translate=""> portlet
-                                                </option>
-                                            </tal:portlets>
+                                        <option value=""><tal:block i18n:translate="">choose Portlet</tal:block></option>
+                                        <tal:portlets tal:repeat="option view/add_portlet_options">
+                                            <option tal:attributes="value option/value"
+                                                    tal:content="option/label" i18n:translate=""> portlet
+                                            </option>
+                                        </tal:portlets>
                                     </select>
-                                    <input type="submit" class="submit" value="add" i18n:attributes="value">
+                                    <input type="submit" class="submit" value="add" i18n:attributes="value" />
                                 </form>
                             </div>
                             <div class="visualClear"><!-- --></div>
@@ -114,8 +114,17 @@
 
                         </div>
                         <div class="visualClear"><!-- --></div>
-                    </div>
 
+                        <!-- Translations for remove portlet dialog popup -->
+                        <div class="hiddenStructure">
+                            <span id="text-remove-portlet"
+                                  i18n:domain="ftw.dashboard.dragndrop"
+                                  i18n:translate="">Do you really want to remove this portlet?</span>
+                            <span id="text-remove-portlet-yes" i18n:translate="">Yes</span>
+                            <span id="text-remove-portlet-no" i18n:translate="">No</span>
+
+                        </div>
+                    </div>
                 </div> <!-- end simulated tabs -->
 
             </tal:main-macro>

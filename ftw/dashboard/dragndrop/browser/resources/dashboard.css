@@ -117,3 +117,18 @@ div#dashboard #dashboard-add-portlet {
 body.section-konto div#portal-column-two {
     margin-top:8.2em;
 }
+
+/* Remove dashboard dialog */
+.ui-widget-header {
+  display:none;
+}
+#remove-portlet-dialog {
+  font-weight: bold;
+  font-size: 1.25em;
+  padding-top: 2em;
+  text-align: center;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+  text-align: center;
+  float: none;
+}
