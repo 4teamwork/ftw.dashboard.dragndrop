@@ -85,7 +85,7 @@ tal:attributes="id string:regio-content;
                       </option>
                     </tal:portlets>
                   </select>
-                  <input type="submit" class="submit" value="add" i18n:attributes="value">
+                  <input type="submit" class="submit" value="add" i18n:attributes="value" />
                   </form>
                 </div>
 

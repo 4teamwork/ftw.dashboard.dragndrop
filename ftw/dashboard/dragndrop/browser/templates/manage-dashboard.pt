@@ -98,7 +98,7 @@
                       </option>
                     </tal:portlets>
                   </select>
-                  <input type="submit" class="submit" value="add" i18n:attributes="value">
+                  <input type="submit" class="submit" value="add" i18n:attributes="value" />
                   </form>
                 </div>
                 <div class="visualClear"><!-- --></div>
