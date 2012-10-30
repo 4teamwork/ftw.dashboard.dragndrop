@@ -5,6 +5,9 @@ Changelog
 1.4.1 (unreleased)
 ------------------
 
+- Added css for default plone.
+  [Julian Infanger]
+
 - Do not show actions bar at all when dashboard is not editable.
   Before it did show the bar but it contained no actions.
   [jone]
