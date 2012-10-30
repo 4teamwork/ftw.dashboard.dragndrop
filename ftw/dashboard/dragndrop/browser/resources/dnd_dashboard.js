@@ -2,7 +2,7 @@ jq(function() {
 
   var updateDropZoneHeight = function() {
     jq('.dashboard-column').css('min-height', '0px');
-    var sizes = []
+    var sizes = [];
     jq('.dashboard-column').each(function(index, value){
       sizes.push(jq(value).height());
     });
@@ -149,12 +149,12 @@ jq(function() {
     var hash = wrapper.attr('id').substr('portletwrapper-'.length);
     var pos = (jq('#visual-portal-wrappers').width() / 2) - 150;
     // fallback if there is no element visual-portal-wrapper
-    if (jq('#visual-portal-wrappers').length == 0) {
+    if (jq('#visual-portal-wrappers').length === 0) {
       pos = (jq('body').width() / 2) - 150;
     }
-    jq('<div></div>')
-      .html('<div id="remove-portlet-dialog">'+jq('#text-remove-portlet').html()+'</div>')
-      .dialog({
+    jq('<div></div>').
+      html('<div id="remove-portlet-dialog">'+jq('#text-remove-portlet').html()+'</div>').
+      dialog({
         modal: true, resizable: false, position:[pos, 100],
         buttons: [
           {
@@ -168,7 +168,7 @@ jq(function() {
               // destroy it
               wrapper.hide().remove();
               $(this).dialog("close");
-            },
+            }
           },
           {
             text: jq("#text-remove-portlet-no").html(),
