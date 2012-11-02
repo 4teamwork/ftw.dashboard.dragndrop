@@ -142,6 +142,23 @@ jq(function() {
     }
   });
 
+  // This is needed when the calendar reloads to display the next month
+  jq('.portletwrapper .portletHeader a').live('click', function(){
+    jq(this).append(jq('<div class="resetIcons"></div>'));
+    var wrapper = jq(this).parents('.portletwrapper:first');
+    var column = wrapper.parents('.dashboard-column:first');
+    var wrapper_id = wrapper.attr('id');
+    var reset_icon = function(){
+      var obj = jq(column).find('#'+wrapper_id);
+      if (jq('.resetIcons', obj).length>0){
+        setTimeout((reset_icon), 100);
+      } else {
+        print_images(jq('.portletHeader', obj));
+      }
+    };
+    reset_icon();
+  });
+
   /* REMOVE PORTLET */
   jq('.portletHeader a.buttonRemove').live('click',function(e) {
     e.preventDefault();
