@@ -5,6 +5,12 @@ Changelog
 1.4.1 (unreleased)
 ------------------
 
+- Do not use jq in javascript anymore.
+  [Julian Infanger]
+
+- Add function to reset the actions when the portlet reloads.
+  [Julian Infanger]
+
 - Added css for default plone.
   [Julian Infanger]
 
