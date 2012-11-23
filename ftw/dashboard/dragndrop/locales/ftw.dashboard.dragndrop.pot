@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-10-25 09:26+0000\n"
+"POT-Creation-Date: 2012-11-23 13:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: ftw.dashboard.dragndrop\n"
 
-#: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:125
-#: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:123
+#: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:122
+#: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:120
 msgid "Do you really want to remove this portlet?"
 msgstr ""
 
