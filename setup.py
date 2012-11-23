@@ -5,15 +5,23 @@ version = '1.4.1.dev0'
 maintainer = 'Mathias Leimgruber'
 
 tests_require = [
+    'unittest2',
+    'plone.testing',
     'plone.app.testing',
-]
+    'transaction',
+    'zope.component',
+    'zope.configuration',
+    'zope.event',
+    'zope.traversing',
+    'plone.portlets',
+    ]
 
 setup(name='ftw.dashboard.dragndrop',
       version=version,
       description="ftw.dashboard.dragndrop adds dragndrop "
-        "functionality to the dashboard",
+      "functionality to the dashboard",
       long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      open(os.path.join("docs", "HISTORY.txt")).read(),
 
       # Get more strings from
       # http://www.python.org/pypi?%3Aaction=list_classifiers
@@ -37,9 +45,28 @@ setup(name='ftw.dashboard.dragndrop',
       zip_safe=False,
 
       install_requires=[
-          'setuptools',
-          'collective.js.jqueryui',
-      ],
+        'setuptools',
+
+        # Zope
+        'Acquisition',
+        'zope.component',
+        'zope.interface',
+        'zope.publisher',
+        'Zope2',
+
+        # Plone
+        'plone.portlets',
+        'plone.theme',
+        'plone.app.contentmenu',
+        'plone.app.layout',
+        'plone.app.portlets',
+        'Products.GenericSetup',
+        'Products.statusmessages',
+        'Products.CMFCore',
+
+        # Addons
+        'collective.js.jqueryui',
+        ],
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
 
