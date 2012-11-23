@@ -13,7 +13,7 @@ class ResetView(BrowserView):
         numbers = self.context.portal_properties.get(
             'ftw.dashboard').getProperty('columnNumber', 4)
         for number in range(numbers):
-            name = "plone.dashboard" + str(number+1)
+            name = "plone.dashboard" + str(number + 1)
             column = queryUtility(IPortletManager, name=name)
             if column is not None:
                 category = column.get(USER_CATEGORY, None)
