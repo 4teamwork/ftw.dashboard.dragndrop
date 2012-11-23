@@ -5,6 +5,9 @@ Changelog
 1.4.1 (unreleased)
 ------------------
 
+- Update German translations.
+  [jone]
+
 - Do not use jq in javascript anymore.
   [Julian Infanger]
 

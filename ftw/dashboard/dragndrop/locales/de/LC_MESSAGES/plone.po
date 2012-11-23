@@ -36,29 +36,27 @@ msgstr "Portlet auswählen"
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:73
 #: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:72
 msgid "heading_dashboard"
-msgstr ""
+msgstr "Startseite von ${user_name}"
 
 #. Default: "Your dashboard is currently empty. Click the <em>edit</em> tab to assign some personal portlets."
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:79
 #: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:78
 msgid "info_empty_dashboard"
-msgstr ""
+msgstr "Ihre Startseite ist zurzeit leer. Clicken Sie auf <em>bearbeiten</em> um Inhalte hinzuzufügen."
 
 #. Default: "Dashboard"
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:40
 #: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:39
 msgid "label_dashboard"
-msgstr ""
+msgstr "Startseite"
 
 #. Default: "Edit"
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:45
 #: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:44
 msgid "label_edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 #. Default: "You entered an invalid RSS-Feed or the Feed itseld cannot be parsed"
 #: ./ftw/dashboard/dragndrop/portlets/rss.pt:40
 msgid "text_invalid_rss_feed_url"
 msgstr "Sie haben einen ungültigen RSS-Feed eingegeben, oder der Feed kann nicht geladen werden."
-
-
