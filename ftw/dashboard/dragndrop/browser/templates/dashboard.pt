@@ -31,7 +31,7 @@
 
 tal:attributes="id string:regio-content;
                 class python:editable and 'documentEditable' or ''" >
-                    <h5 class="hiddenStructure">Views</h5>
+                    <h5 class="hiddenStructure" i18n:translate="">Dashboard</h5>
                     <tal:editable tal:condition="not:editable">
                         <ul
                             id="content-views"

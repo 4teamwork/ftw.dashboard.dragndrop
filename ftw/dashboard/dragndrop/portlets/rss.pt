@@ -10,9 +10,7 @@
         <a href=""
            tal:attributes="href view/siteurl"
            tal:content="view/title"
-           class="tile">
-            Tags
-        </a>
+           class="tile" />
         <span class="portletTopRight"></span>
     </dt>
     <tal:rss tal:condition="view/feedAvailable"

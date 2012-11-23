@@ -30,7 +30,7 @@
                                         name python:memberinfo['fullname'] or member.getId() or member.getId()">
 
                 <div class="documentEditable" >
-                    <h5 class="hiddenStructure">Views</h5>
+                    <h5 class="hiddenStructure" i18n:translate="">Dashboard</h5>
                     <tal:editable tal:condition="python:context.portal_properties.get('ftw.dashboard') and context.portal_properties.get('ftw.dashboard').getProperty('dashboardEditable') and False or True">
                         <ul
                             id="content-views"
