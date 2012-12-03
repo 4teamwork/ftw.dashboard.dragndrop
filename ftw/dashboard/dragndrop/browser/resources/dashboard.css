@@ -135,7 +135,8 @@ body.section-konto div#portal-column-two {
 }
 
 /* Remove dashboard dialog */
-.ui-widget-header {
+.template-dashboard .ui-widget-header,
+.template-manage-dashboard .ui-widget-header{
   display:none;
 }
 #remove-portlet-dialog {
