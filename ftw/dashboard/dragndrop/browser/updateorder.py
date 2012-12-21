@@ -5,6 +5,8 @@ from plone.portlets.interfaces import IPortletManager
 from plone.portlets.utils import unhashPortletInfo, hashPortletInfo
 from Products.Five import BrowserView
 from zope.component import getUtility
+from Products.CMFCore.utils import getToolByName
+from zExceptions import Unauthorized
 
 
 class UpdateOrder(BrowserView):
@@ -28,6 +30,12 @@ class UpdateOrder(BrowserView):
         portlet_info = unhashPortletInfo(_hash)
         name = portlet_info['name']
         column = self.get_column_and_portlet(portlet_info)[0]
+
+        userid = portlet_info['key']
+        mtool = getToolByName(self.context, 'portal_membership')
+        member = mtool.getAuthenticatedMember()
+        if userid != member.getId():
+            raise Unauthorized
 
         keys = list(column.keys())
         if name in keys:

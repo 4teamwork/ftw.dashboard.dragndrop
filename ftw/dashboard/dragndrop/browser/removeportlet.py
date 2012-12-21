@@ -1,9 +1,10 @@
 from Products.Five import BrowserView
 from zope.component import getUtility
-
+from Products.CMFCore.utils import getToolByName
 from plone.portlets.utils import unhashPortletInfo
 from plone.portlets.interfaces import IPortletManager
 from plone.portlets.constants import USER_CATEGORY
+from zExceptions import Unauthorized
 
 
 class RemovePortlet(BrowserView):
@@ -12,6 +13,12 @@ class RemovePortlet(BrowserView):
         _hash = self.request.get('hash')
         portlet_info = unhashPortletInfo(_hash)
         column = self.get_column_and_portlet(portlet_info)[0]
+
+        userid = portlet_info['key']
+        mtool = getToolByName(self.context, 'portal_membership')
+        member = mtool.getAuthenticatedMember()
+        if userid != member.getId():
+            raise Unauthorized
 
         if portlet_info['name'] in column.keys():
             del column[portlet_info['name']]
