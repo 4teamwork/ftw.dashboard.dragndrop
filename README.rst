@@ -4,6 +4,12 @@ Overview
 
 `ftw.dashboard.dragndrop` adds persistent dragndrop functionality to the standard plone dashboard.
 
+.. figure:: http://onegov.ch/approved.png/image
+   :align: right
+   :target: http://onegov.ch/community/zertifizierte-module/ftw.dashboard.dragndrop
+
+   Certified: 01/2013
+
 Features:
 
 - **Drag'n'drop**:

@@ -5,6 +5,9 @@ Changelog
 1.4.1 (unreleased)
 ------------------
 
+- onegov.ch approved: add badge to readme.
+  [jone]
+
 - Update German translations.
   [jone]
 
