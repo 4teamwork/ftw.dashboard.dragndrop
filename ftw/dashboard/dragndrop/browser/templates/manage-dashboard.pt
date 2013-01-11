@@ -73,7 +73,7 @@
                         </h1>
 
                         <dl tal:condition="view/empty"
-                            class="portalMessage info visualClear" id="dashboard-info-message">
+                            class="portalMessage info" id="dashboard-info-message">
                             <dt i18n:translate="">Info</dt>
                             <dd i18n:translate="info_empty_dashboard">
                                 Your dashboard is currently empty. Click the
