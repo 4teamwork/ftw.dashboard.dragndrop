@@ -5,6 +5,9 @@ Changelog
 1.4.1 (unreleased)
 ------------------
 
+- Removed visualClear class from statusmessage on empty dashboard.
+  [Julian Infanger]
+
 - onegov.ch approved: add badge to readme.
   [jone]
 
