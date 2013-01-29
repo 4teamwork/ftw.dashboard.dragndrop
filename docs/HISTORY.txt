@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.5.1 (unreleased)
+1.5.1 (2013-01-29)
 ------------------
 
 - Fix browserlayer name.
