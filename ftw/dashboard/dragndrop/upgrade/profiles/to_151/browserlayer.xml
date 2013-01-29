@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <layers>
+    <layer name="ftw.usermanagement" remove="True" />
+
     <layer name="ftw.dashboard.dragndrop"
            interface="ftw.dashboard.dragndrop.browser.interfaces.IDashboardLayer" />
 </layers>

@@ -22,6 +22,14 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <genericsetup:registerProfile
+        name="15-to-151"
+        title="Upgrade profile for ftw.dashboard.dragndrop v1.5 to v1.5.1"
+        description="This profile contains configuration changes that are applied during the upgrade from 1.5 to 1.5.1"
+        directory="profiles/to_151"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
 
 
     <genericsetup:upgradeSteps
@@ -45,6 +53,18 @@
         <genericsetup:upgradeStep
             title="Adds browserlayer for new rss portletrenderer"
             handler="ftw.dashboard.dragndrop.upgrade.upgrades.one117_one12"
+            />
+
+    </genericsetup:upgradeSteps>
+
+    <genericsetup:upgradeSteps
+        source="3"
+        destination="4"
+        profile="ftw.dashboard.dragndrop:default">
+
+        <genericsetup:upgradeStep
+            title="Fix browserlayer name"
+            handler="ftw.dashboard.dragndrop.upgrade.upgrades.one15_one151"
             />
 
     </genericsetup:upgradeSteps>

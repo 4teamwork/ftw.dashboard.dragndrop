@@ -13,3 +13,10 @@ def one117_one12(context):
     load_migration_profile(
         context,
         'profile-ftw.dashboard.dragndrop.upgrade:117-to-12')
+
+
+def one15_one151(context):
+    """1.5 -> 1.5.1"""
+    load_migration_profile(
+        context,
+        'profile-ftw.dashboard.dragndrop.upgrade:15-to-151')

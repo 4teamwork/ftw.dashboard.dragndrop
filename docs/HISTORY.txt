@@ -5,6 +5,9 @@ Changelog
 1.5.1 (unreleased)
 ------------------
 
+- Fix browserlayer name.
+  [mathias.leimgruber]
+
 - Security fixes.
   [mathias.leimgruber]
 
