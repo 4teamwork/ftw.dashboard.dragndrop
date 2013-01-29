@@ -34,7 +34,7 @@ Add again a Calendar portlet
     >>> browser.open(portal_url + '/dashboard')
     >>> browser.contents.count('portletCalendar')
     1
-    
+
 Test remove action for the given portlets
     >>> url = portal_url + '/ftw.dashboard.dragndrop-removeportlet'
 
@@ -53,8 +53,8 @@ Remove Portlet
     >>> browser.open(portal_url + '/dashboard')
     >>> 'portletCalendar' in browser.contents
     False
-    
-    
+
+
 Add a new editable portlets (rss portlet)
 
     >>> url = '/++dashboard++plone.dashboard1+' + TEST_USER_ID + '/+/portlets.rss'
@@ -76,7 +76,7 @@ Double check the result
     http://nohost/plone/++dashboard++plone.dashboard1+test_user_1_/rss-http-www-heise-de/edit?referer=localhost
     >>> 'Edit RSS Portlet' in browser.contents
     True
-    
+
 Fold portlet
 
     >>> browser.open('ftw.dashboard.dragndrop-foldportlet?folded=1&hash='+portlethash)
@@ -90,8 +90,8 @@ Check portlet has attr isFolded ( and it should be True)
     >>> portlet = column.get('rss-http-www-heise-de')
     >>> getattr(portlet, 'isFolded', False)
     True
-    
-    
+
+
 Test reordering of portlets
 For this case, add one more portlet to the same column as the rss portlet is
 
@@ -112,13 +112,13 @@ Second portlet
     >>> portlet2 = 'portlets:list=plone.dashboard1:' + portlethash2
 
 Currently portlet1 is rendered befor portlet2
-    
+
     >>> browser.open(portal_url + "/dashboard")
     >>> browser.contents.find('portletRss') < browser.contents.find('portletCalendar')
     True
 
     Change the order
-    
+
     >>> url = '/ftw.dashboard.dragndrop-update_order?%s&%s' % (portlet2, portlet1)
     >>> browser.open(portal_url + url)
     >>> browser.open(portal_url + "/dashboard")
@@ -139,8 +139,8 @@ Use precalculated hashes
     >>> browser.open(portal_url + url2)
     >>> browser.open(portal_url + "/dashboard")
 
-Check if the new portlet hash is available
+The new hash should not be available, since this would be a security breach:
 
     >>> newhash = '706c6f6e652e64617368626f617264320a757365720a746573745f757365725f315f0a63616c656e646172'
     >>> newhash in browser.contents
-    True
+    False
