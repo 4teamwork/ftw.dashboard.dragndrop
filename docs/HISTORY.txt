@@ -5,6 +5,9 @@ Changelog
 1.5.2 (unreleased)
 ------------------
 
+- Remove unused disableSelection on column elements.
+  [Julian Infanger]
+
 - Fixed accessibility issues in dashboard overview.
   [Julian Infanger]
 

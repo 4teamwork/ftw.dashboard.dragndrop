@@ -114,8 +114,6 @@ jQuery(function($){
     update :        update_dashboard_order
   });
 
-  $('.column').disableSelection();
-
   /* TOGGLE PORTLET CONTENT */
   $('.portletHeader a.buttonOpen, .portletHeader a.buttonClose').live('click',function(e) {
     e.preventDefault();
