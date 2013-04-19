@@ -77,3 +77,7 @@ Copyright
 This package is copyright by `4teamwork <http://www.4teamwork.ch/>`_.
 
 ``ftw.dashboard.dragndrop`` is licensed under GNU General Public License, version 2.
+
+.. image:: https://cruel-carlota.pagodabox.com/e1725d1b3bd98708955749571230eb3e
+   :alt: githalytics.com
+   :target: http://githalytics.com/4teamwork/ftw.dashboard.dragndrop
