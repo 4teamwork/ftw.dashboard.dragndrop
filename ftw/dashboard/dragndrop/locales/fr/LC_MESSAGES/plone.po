@@ -30,19 +30,19 @@ msgstr "Plus…"
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:94
 #: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:93
 msgid "choose Portlet"
-msgstr "Choix d'outil"
+msgstr "Choissier le portlet"
 
 #. Default: "${user_name}'s dashboard"
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:73
 #: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:72
 msgid "heading_dashboard"
-msgstr "Page d'accueil"
+msgstr "Page d'accueil de ${user_name}"
 
 #. Default: "Your dashboard is currently empty. Click the <em>edit</em> tab to assign some personal portlets."
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:79
 #: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:78
 msgid "info_empty_dashboard"
-msgstr "Votre page d'accueil est actuellement vide. Cliquez sur l'onglet <em>edit</em> pour définir des outils personnels "
+msgstr "Votre page d'accueil est actuellement vide. Cliquez sur l'onglet <em>Modifier</em> pour définir des outils personnels"
 
 #. Default: "Dashboard"
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:40
@@ -54,7 +54,7 @@ msgstr "Page d'accueil"
 #: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:45
 #: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:44
 msgid "label_edit"
-msgstr "Editer"
+msgstr "Modifier"
 
 #. Default: "You entered an invalid RSS-Feed or the Feed itseld cannot be parsed"
 #: ./ftw/dashboard/dragndrop/portlets/rss.pt:40
