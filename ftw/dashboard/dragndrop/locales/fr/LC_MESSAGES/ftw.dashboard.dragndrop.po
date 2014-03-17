@@ -1,0 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-11-23 13:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Preferred-Encodings: utf-8 latin1\n"
+
+#: ./ftw/dashboard/dragndrop/browser/templates/dashboard.pt:122
+#: ./ftw/dashboard/dragndrop/browser/templates/manage-dashboard.pt:120
+msgid "Do you really want to remove this portlet?"
+msgstr "Voulez-vous vraiment effacer cet outil ?"
+
+
