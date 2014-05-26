@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.5.4 (unreleased)
+1.5.4 (2014-05-26)
 ------------------
 
 - Added french translation by I. Anthenien.
