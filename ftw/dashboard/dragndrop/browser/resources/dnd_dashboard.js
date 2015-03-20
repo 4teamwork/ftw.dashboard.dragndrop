@@ -162,15 +162,10 @@ jQuery(function($){
     e.preventDefault();
     var wrapper = $(this).parents('.portletwrapper:first');
     var hash = wrapper.attr('id').substr('portletwrapper-'.length);
-    var pos = ($('#visual-portal-wrappers').width() / 2) - 150;
-    // fallback if there is no element visual-portal-wrapper
-    if ($('#visual-portal-wrappers').length === 0) {
-      pos = ($('body').width() / 2) - 150;
-    }
     $('<div></div>').
       html('<div id="remove-portlet-dialog">'+$('#text-remove-portlet').html()+'</div>').
       dialog({
-        modal: true, resizable: false, position:[pos, 100],
+        modal: true, resizable: false, position: {my: "center", at: "top+200"}, width: 1200,
         buttons: [
           {
             text: $("#text-remove-portlet-yes").html(),
