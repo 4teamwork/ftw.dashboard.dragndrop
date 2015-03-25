@@ -5,7 +5,9 @@ Changelog
 1.5.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Change width of delete portlet confirmation dialog
+  in order to make it easier customizable with css.
+  [Kevin Bieri]
 
 
 1.5.4 (2014-05-26)
