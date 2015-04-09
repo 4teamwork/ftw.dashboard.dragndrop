@@ -1,7 +1,16 @@
-from Products.CMFCore.utils import getToolByName
 from plone.app.layout.dashboard.dashboard import DashboardView
 from plone.portlets.interfaces import IPortletType
+from Products.CMFCore.utils import getToolByName
 from zope.component import queryUtility
+
+
+# Try to get the plone.protect's createToken method, because it's only
+# available since version 2.0.2, otherwise we just use a mocked method.
+try:
+    from plone.protect import createToken
+except ImportError:
+    def createToken():
+        return ''
 
 
 class FTWDashBoard(DashboardView):
@@ -23,6 +32,9 @@ class FTWDashBoard(DashboardView):
             request.set('disable_plone.rightcolumn', True)
         else:
             request.set('disable_plone.rightcolumn', False)
+
+    def authenticator_token(self):
+        return createToken()
 
     def dashboard_props(self):
         return getattr(self.context.portal_properties, 'ftw.dashboard', None)

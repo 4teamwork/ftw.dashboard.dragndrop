@@ -53,7 +53,8 @@ tal:attributes="id string:regio-content;
                         </div>
                     </tal:editable>
 
-                    <div class="documentContent dashboardContent" id="content">
+                    <div class="documentContent dashboardContent" id="content"
+                         tal:attributes="data-authenticator-token view/authenticator_token">
 
                         <a name="documentContent"></a>
 
