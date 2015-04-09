@@ -34,6 +34,8 @@ jQuery(function($){
     }
   };
 
+  var authenticator_token = $('.dashboardContent').data('authenticator-token');
+
   var update_dashboard_order = function(event, ui) {
     // the update event handler is called twice (once with ui.sender
     // and once without). ui.sender needs to be Null, otherwise
@@ -90,12 +92,18 @@ jQuery(function($){
       type :      'POST',
       url :       './ftw.dashboard.dragndrop-update_order',
       data :      customSerialization(),
+      beforeSend: function (request){
+        request.setRequestHeader("X-CSRF-TOKEN", authenticator_token);
+      },
       success :   function(msg) {
         updateHashesCallback(msg);
         // we need to send the changes with updated hashes again
         $.ajax({
           type :      'POST',
           url :       './ftw.dashboard.dragndrop-update_order',
+          beforeSend: function (request){
+            request.setRequestHeader("X-CSRF-TOKEN", authenticator_token);
+          },
           data :      customSerialization()
         });
       }
@@ -130,6 +138,9 @@ jQuery(function($){
     }
     $.ajax({
       type :      'POST',
+      beforeSend: function (request){
+        request.setRequestHeader("X-CSRF-TOKEN", authenticator_token);
+      },
       url :       './ftw.dashboard.dragndrop-foldportlet',
       data :      'hash='.concat(hash)+'&folded='.concat(folded)
     });
@@ -173,6 +184,9 @@ jQuery(function($){
               $.ajax({
                 type : 'POST',
                 url : './ftw.dashboard.dragndrop-removeportlet',
+                beforeSend: function (request){
+                  request.setRequestHeader("X-CSRF-TOKEN", authenticator_token);
+                },
                 data : 'hash='.concat(hash)
               });
               // destroy it

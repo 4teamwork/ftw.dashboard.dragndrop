@@ -52,7 +52,8 @@
                         </div>
                     </tal:editable>
 
-                    <div class="documentContent dashboardContent manageDashboard" id="content">
+                    <div class="documentContent dashboardContent manageDashboard" id="content"
+                         tal:attributes="data-authenticator-token view/authenticator_token">
 
                         <a name="documentContent"></a>
 
