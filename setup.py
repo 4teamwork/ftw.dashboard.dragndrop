@@ -34,7 +34,7 @@ setup(name='ftw.dashboard.dragndrop',
         ],
 
       keywords='ftw dashboard dragndrop',
-      author='4teamwork GmbH',
+      author='4teamwork AG',
       author_email='mailto:info@4teamwork.ch',
       maintainer=maintainer,
       url='https://github.com/4teamwork/ftw.dashboard.dragndrop',
