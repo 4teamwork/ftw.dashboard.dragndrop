@@ -65,9 +65,9 @@ Properties:
 Links
 =====
 
-- Package repository: https://github.com/4teamwork/ftw.dashboard.dragndrop
-- Issue tracker: https://github.com/4teamwork/ftw.dashboard.dragndrop/issues
-- Package on pypi: http://pypi.python.org/pypi/ftw.dashboard.dragndrop
+- Github: https://github.com/4teamwork/ftw.dashboard.dragndrop
+- Issues: https://github.com/4teamwork/ftw.dashboard.dragndrop/issues
+- Pypi: http://pypi.python.org/pypi/ftw.dashboard.dragndrop
 - Continuous integration: https://jenkins.4teamwork.ch/search?q=ftw.dashboard.dragndrop
 
 
