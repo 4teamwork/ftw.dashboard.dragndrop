@@ -56,6 +56,7 @@ setup(name='ftw.dashboard.dragndrop',
         'Zope2',
 
         # Plone
+        'Plone',
         'plone.portlets',
         'plone.theme',
         'plone.app.contentmenu',
