@@ -27,12 +27,10 @@
                                         name python:memberinfo['fullname'] or member.getId() or member.getId()">
 
 
-                <div tal:define="editable python: view.dashboard_props().getProperty('dashboardEditable', False)"
-
-tal:attributes="id string:regio-content;
-                class python:editable and 'documentEditable' or ''" >
+                <div tal:attributes="id string:regio-content;
+                                     class python:view.editable and 'documentEditable' or ''" >
                     <h5 class="hiddenStructure" i18n:translate="">Dashboard</h5>
-                    <tal:editable tal:condition="not:editable">
+                    <tal:editable tal:condition="not:view/editable">
                         <ul
                             id="content-views"
                             class="contentViews">
@@ -70,10 +68,11 @@ tal:attributes="id string:regio-content;
 
                         <div class="visualClear"><!-- --></div>
 
-                        <div id="dashboard"
-                             tal:define="column_amount python:context.portal_properties.get('ftw.dashboard') and context.portal_properties.get('ftw.dashboard').columnNumber or 4;"
-                             tal:attributes="class string:dashboard-columns-${column_amount}">
-                            <div tal:condition="editable" id="dashboard-add-portlet" tal:define="referer python:context.absolute_url()+'/'+ view.__name__;">
+                        <tal:main-macro metal:define-macro="dashboard">
+                          <div id="dashboard"
+                               tal:define="column_amount python:context.portal_properties.get('ftw.dashboard') and context.portal_properties.get('ftw.dashboard').columnNumber or 4;"
+                               tal:attributes="class string:dashboard-columns-${column_amount}">
+                            <div tal:condition="view/editable" id="dashboard-add-portlet" tal:define="referer python:context.absolute_url()+'/'+ view.__name__;">
                                 <form tal:attributes="action python:context.portal_url()">
                                     <textarea style="display:none" tal:content="referer" title="referer" name="referer"></textarea>
                                     <select name=":action"
@@ -117,17 +116,18 @@ tal:attributes="id string:regio-content;
 
                             </tal:columns>
 
-                        </div>
-                        <div class="visualClear"><!-- --></div>
+                          </div>
+                          <div class="visualClear"><!-- --></div>
 
-                        <!-- Translations for remove portlet dialog popup -->
-                        <div class="hiddenStructure">
+                          <!-- Translations for remove portlet dialog popup -->
+                          <div class="hiddenStructure">
                             <span id="text-remove-portlet"
                                   i18n:domain="ftw.dashboard.dragndrop"
                                   i18n:translate="">Do you really want to remove this portlet?</span>
                             <span id="text-remove-portlet-yes" i18n:translate="">Yes</span>
                             <span id="text-remove-portlet-no" i18n:translate="">No</span>
-                        </div>
+                          </div>
+                        </tal:main-macro>
 
                     </div>
                 </div> <!-- end simulated tabs -->

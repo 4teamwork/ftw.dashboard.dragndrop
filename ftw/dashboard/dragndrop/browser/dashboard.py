@@ -39,6 +39,10 @@ class FTWDashBoard(DashboardView):
     def dashboard_props(self):
         return getattr(self.context.portal_properties, 'ftw.dashboard', None)
 
+    @property
+    def editable(self):
+        return self.props.getProperty('dashboardEditable', False)
+
     def add_portlet_options(self):
         mtool = getToolByName(self.context, 'portal_membership')
         userid = mtool.getAuthenticatedMember().getId()
