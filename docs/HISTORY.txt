@@ -2,10 +2,13 @@ Changelog
 =========
 
 
-1.6.1 (unreleased)
+1.7.0 (unreleased)
 ------------------
 
-- Drop support for Plone 4.1 [jone]
+- Drop support for Plone 4.1.
+  [jone]
+- Make a dashboard macro for inclusion in other pages.
+  [djowett-ftw]
 
 
 1.6.0 (2015-07-07)

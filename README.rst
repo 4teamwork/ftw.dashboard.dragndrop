@@ -20,6 +20,19 @@ Features:
   Dashboard portlets have an icon on the top (pencil) for editing the portlet.
 - **close/remove portlet**:
   Dashboard portlets have an icon on the top (cross) for removing the portlet from the dashboard.
+- **dashboard macro**:
+  The Dashboard is a dedicated view, but it can also be included in other pages as follows if
+  its BrowserView extends `FTWDashBoard`:
+
+::
+
+    <div tal:attributes="id string:regio-content;
+                       class python:view.editable and 'documentEditable' or ''" >
+
+      <div metal:use-macro="context/@@dashboard/macros/dashboard">
+          dashboard from ftw.dashboard.dragndrop product
+      </div>
+    </div>
 
 
 Install
