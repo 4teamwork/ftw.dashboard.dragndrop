@@ -5,7 +5,7 @@ Changelog
 1.7.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix edit button css class name. [mathias.leimgruber]
 
 
 1.7.0 (2020-03-09)

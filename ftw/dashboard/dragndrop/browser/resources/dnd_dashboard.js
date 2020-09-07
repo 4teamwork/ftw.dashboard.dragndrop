@@ -78,7 +78,7 @@ jQuery(function($){
 
           // edit link must be fixed: the column id may be wrong!
           // test if there is a edit link
-          var editLinks = $('#portletwrapper-' + newHash + ' .edit');
+          var editLinks = $('#portletwrapper-' + newHash + ' .buttonEdit');
           if(editLinks.length>0) {
             var editLink = editLinks[0];
             var href = editLink.getAttribute("href").replace(oldHash, newHash);
