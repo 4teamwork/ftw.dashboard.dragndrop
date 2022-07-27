@@ -42,8 +42,8 @@
   display: block;
 }
 
-dl.portlet dt .portletActionsWrapper a,
-dl.portlet dt .portletActionsWrapper span {
+.portlet .portletActionsWrapper a,
+.portlet .portletActionsWrapper span {
   background: url(++resource++ftw.dashboard.dragndrop.resources/portlet_actions.png) no-repeat;
   width: 16px;
   min-height: 20px;
@@ -51,13 +51,13 @@ dl.portlet dt .portletActionsWrapper span {
   display: inline-block;
 }
 
-.portletCalendar dt a#calendar-previous {
+.portletCalendar a#calendar-previous {
     float: none;
     display: inline-block;
     margin: 0;
     padding: 0;
 }
-.portletCalendar dt a#calendar-next {
+.portletCalendar a#calendar-next {
     float: none;
     display: inline-block;
     margin: 0;
@@ -65,40 +65,40 @@ dl.portlet dt .portletActionsWrapper span {
 }
 
 
-dl.portlet dt .portletActionsWrapper a:first-child {
+.portlet .portletActionsWrapper a:first-child {
   margin-left: 0;
 }
-dl.portlet dt .portletActionsWrapper span.buttonMove {
+.portlet .portletActionsWrapper span.buttonMove {
   background-position: 0 0;
 }
-dl.portlet dt .portletActionsWrapper span.buttonMove:hover {
+.portlet .portletActionsWrapper span.buttonMove:hover {
   background-position:0 -50px;
 }
-dl.portlet dt .portletActionsWrapper a.buttonEdit {
+.portlet .portletActionsWrapper a.buttonEdit {
   background-position:0 -100px;
 }
-dl.portlet dt .portletActionsWrapper a.buttonEdit:hover {
+.portlet .portletActionsWrapper a.buttonEdit:hover {
   background-position:0 -150px;
 }
-dl.portlet dt .portletActionsWrapper a.buttonClose {
+.portlet .portletActionsWrapper a.buttonClose {
   background-position:0 -200px;
 }
-dl.portlet dt .portletActionsWrapper a.buttonClose:hover {
+.portlet .portletActionsWrapper a.buttonClose:hover {
   background-position:0 -250px;
 }
-dl.portlet dt .portletActionsWrapper a.buttonOpen {
+.portlet .portletActionsWrapper a.buttonOpen {
   background-position:0 -300px;
 }
-dl.portlet dt .portletActionsWrapper a.buttonOpen:hover {
+.portlet .portletActionsWrapper a.buttonOpen:hover {
   background-position:0 -350px;
 }
-dl.portlet dt .portletActionsWrapper a.buttonRemove {
+.portlet .portletActionsWrapper a.buttonRemove {
   background-position:0 -400px;
 }
-dl.portlet dt .portletActionsWrapper a.buttonRemove:hover {
+.portlet .portletActionsWrapper a.buttonRemove:hover {
   background-position:0 -450px;
 }
-.portletCalendar dt.portletHeader {
+.portletCalendar .portletHeader {
   text-align: left;
 }
 
@@ -111,7 +111,7 @@ span.noEntries {
     padding:0.5em;
 }
 
-.folded dd, .folded form{
+.folded dd, .folded form, .folded .portletContent{
     display: none;
     visibility: hidden;
     width:100%;

@@ -24,14 +24,18 @@ class FTWDashBoard(DashboardView):
             'ftw.dashboard',
             None)
 
+    def __call__(self):
+        result = super(FTWDashBoard, self).__call__()
         if not self.showleftcolumn:
-            request.set('disable_plone.leftcolumn', True)
+            self.request.set('disable_plone.leftcolumn', True)
         else:
-            request.set('disable_plone.leftcolumn', False)
+            self.request.set('disable_plone.leftcolumn', False)
         if not self.showrightcolumn:
-            request.set('disable_plone.rightcolumn', True)
+            self.request.set('disable_plone.rightcolumn', True)
         else:
-            request.set('disable_plone.rightcolumn', False)
+            self.request.set('disable_plone.rightcolumn', False)
+
+        return result
 
     def authenticator_token(self):
         return createToken()

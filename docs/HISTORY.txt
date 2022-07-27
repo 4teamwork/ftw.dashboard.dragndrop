@@ -2,10 +2,12 @@ Changelog
 =========
 
 
-1.7.2 (unreleased)
+2.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Make somewhat plone 5.1 compatible. Everything works, but styling is a bit off. [mathias.leimgruber]
+
+- Drop tests for plone 4.3 - package might still work with plone 4. [mathias.leimgruber]
 
 
 1.7.1 (2020-09-07)

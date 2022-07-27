@@ -30,7 +30,10 @@ Login
 
 Add again a Calendar portlet
 
-    >>> browser.open(portal_url + '/++dashboard++plone.dashboard1+' + TEST_USER_ID + '/+/portlets.Calendar')
+    >>> from plone.protect import createToken
+    >>> browser.open(portal_url + '/++dashboard++plone.dashboard1+' + TEST_USER_ID + '/+/portlets.Calendar?_authenticator=' + createToken())
+    >>> browser.getControl(name='form.buttons.add').click()
+
     >>> browser.open(portal_url + '/dashboard')
     >>> browser.contents.count('portletCalendar')
     1
@@ -46,6 +49,7 @@ Construct hash for the exitsing calendar portlet
     ...    name = 'calendar')
     >>> portlethash = hashPortletInfo(info)
     >>> params = '?hash=%s' % portlethash
+    >>> params = params + '&_authenticator=%s' % createToken()
 
 Remove Portlet
 
@@ -57,10 +61,10 @@ Remove Portlet
 
 Add a new editable portlets (rss portlet)
 
-    >>> url = '/++dashboard++plone.dashboard1+' + TEST_USER_ID + '/+/portlets.rss'
+    >>> url = '/++dashboard++plone.dashboard1+' + TEST_USER_ID + '/+/portlets.rss?_authenticator=' + createToken()
     >>> browser.open(portal_url + url)
-    >>> browser.getControl(name='form.url').value = u'http://www.heise.de/newsticker/heise.rdf'
-    >>> browser.getControl(name='form.actions.save').click()
+    >>> browser.getControl(name='form.widgets.url').value = u'http://www.heise.de/newsticker/heise.rdf'
+    >>> browser.getControl(name='form.buttons.add').click()
 
 
 Call edit view
@@ -95,8 +99,8 @@ Check portlet has attr isFolded ( and it should be True)
 Test reordering of portlets
 For this case, add one more portlet to the same column as the rss portlet is
 
-    >>> url = '/++dashboard++plone.dashboard1+' + TEST_USER_ID + '/+/portlets.Calendar'
-    >>> browser.open(portal_url + url)
+    >>> browser.open(portal_url + '/++dashboard++plone.dashboard1+' + TEST_USER_ID + '/+/portlets.Calendar?_authenticator=' + createToken())
+    >>> browser.getControl(name='form.buttons.add').click()
 
 Create parameter for reorder function
 The reorder function looks for "portlets:list"
@@ -119,7 +123,7 @@ Currently portlet1 is rendered befor portlet2
 
     Change the order
 
-    >>> url = '/ftw.dashboard.dragndrop-update_order?%s&%s' % (portlet2, portlet1)
+    >>> url = '/ftw.dashboard.dragndrop-update_order?%s&%s&_authenticator=%s' % (portlet2, portlet1, createToken())
     >>> browser.open(portal_url + url)
     >>> browser.open(portal_url + "/dashboard")
 

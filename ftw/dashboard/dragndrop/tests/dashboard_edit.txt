@@ -25,10 +25,6 @@ Login
 Open dashboard 
     >>> browser.open(portal_url + '/dashboard')
 
-Content views should be available to switch between edit- and view-mode
-    >>> 'content-views' in browser.contents
-    True
-
 Set dashboardEditable, so it should be possible to manage your portlets
 directly.    
     >>> props._setPropValue('dashboardEditable', True)
@@ -50,7 +46,9 @@ There should be three portlets available.
 
 Add a Calendar portlet
 
-    >>> browser.open(portal_url + '/++dashboard++plone.dashboard1+' + TEST_USER_ID + '/+/portlets.Calendar')
+    >>> from plone.protect import createToken
+    >>> browser.open(portal_url + '/++dashboard++plone.dashboard1+' + TEST_USER_ID + '/+/portlets.Calendar?_authenticator=' + createToken())
+    >>> browser.getControl(name='form.buttons.add').click()
     >>> browser.open(portal_url + '/dashboard')
     >>> 'portletCalendar' in browser.contents
     True
