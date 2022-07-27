@@ -232,3 +232,10 @@ jQuery(function($){
 
 
 });
+
+define("dnd_dashboard", function(){});
+
+require(['dnd_dashboard',], function (dnd_dashboard) {});
+
+define("main", function(){});
+
